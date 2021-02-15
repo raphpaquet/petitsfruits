@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   buttonProgress: {
-    color: '#006466',
+    color: '#fd9bab',
     position: 'flex',
     justifyContent: 'center',
     alignItem:'center',

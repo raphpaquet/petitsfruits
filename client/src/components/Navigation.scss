@@ -1,15 +1,34 @@
 @import '../assets/variables';
 
 #navbar {
-  height: auto;
-  .logo {
-    height: 5rem;
-    margin: 2em;
+  .page-title {
+    background-color: $purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo {
+      height: 5rem;
+      margin: 2em;
+    }
+    .name {
+      text-transform: uppercase;
+      color: $peach;
+      font-family: $font-title;
+      font-size: 3rem;
+    }
   }
+
+  .skate {
+    height: 50vh;
+  }
+
   .tab-button {
-    margin-left: 45%;
+    background-color: $purple;
   }
   .tab-list {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2em;
     list-style: none;
     color: $pink;
     font-family: $font-title;
