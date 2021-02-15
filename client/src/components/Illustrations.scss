@@ -1,0 +1,46 @@
+@import '../assets/variables';
+
+#illustrations {
+  
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    margin: 2em 6em;
+  }
+  
+  li {
+    height: 45vh;
+    flex-grow: 1;
+    list-style: none;
+    margin: 0.5em; 
+  }
+  
+  .img-illustration {
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+    box-shadow: 4px 5px #bec4d2;
+    
+  }
+
+}
+
+
+@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+  ul {
+    flex-direction: row;
+  }
+
+  li {
+    height: auto;
+    width: 100%;
+  }
+
+  .img-illustration {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  }
+}

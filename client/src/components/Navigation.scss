@@ -1,0 +1,29 @@
+@import '../assets/variables';
+
+#navbar {
+  height: auto;
+  .logo {
+    height: 5rem;
+    margin: 2em;
+  }
+  .tab-button {
+    margin-left: 45%;
+  }
+  .tab-list {
+    list-style: none;
+    color: $pink;
+    font-family: $font-title;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    height: 15vh;
+    .action-btn {
+      text-decoration: none;
+      outline: none;
+      color: $pink;
+      display: flex;
+      &:hover {
+        color: #fbd0d7
+      }
+    }
+  }
+}
