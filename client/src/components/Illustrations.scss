@@ -10,7 +10,7 @@
   }
   
   li {
-    height: 50vh;
+    height: 30vh;
     flex-grow: 1;
     list-style: none;
     margin: 0.5em; 
@@ -31,6 +31,7 @@
 @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
   ul {
     flex-direction: row;
+    margin: 0.5em
   }
 
   li {
