@@ -1,0 +1,91 @@
+@import '../assets/variables';
+
+#store {
+  background-color: white;
+  font-family: $font-title;
+  font-size: 1.2em;
+  height: 100%;
+  min-height: 100vh;
+  .page-title {
+    background-color: $purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo {
+      height: 5rem;
+      margin: 2em;
+    }
+    .name {
+      text-transform: uppercase;
+      color: $peach;
+      font-family: $font-title;
+      font-size: 3rem;
+    }
+  }
+  h1 {
+    text-transform: uppercase;
+    color: $peach;
+    letter-spacing: 0.2em;
+    padding: 3em 0em;
+    margin: 0;
+  }
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    margin: 2em 6em;
+    list-style: none;
+    margin: 2em;
+  }
+  .product {
+    max-height: 100%;
+    // min-width: 100%;
+    // object-fit: cover;
+    vertical-align: bottom;
+    // box-shadow: 2px 3px #e2e6ee;
+    flex-grow: 1;
+    list-style: none;
+    margin: 1em;
+
+    .product-image {
+      width:auto;
+      height: 150px;;
+    }
+    .product-name {
+      font-family: $font-write;
+      font-size: 1.6em;
+      a {
+        outline: none;
+        color: $pink;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+    .product-brand {
+      font-family: $font-para;
+      font-size: 1em;
+    }
+    .product-price {
+      font-family: $font-para;
+      font-size: 1em;
+      font-weight: bold;
+      color: rgb(100, 96, 96);
+    }
+  }
+
+  .categories {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    .category-btn {
+      color: $pink;
+      font-family: $font-title;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .category-btn:focus {
+      border: 1px solid $pink;
+      padding: 10px
+    }
+  }
+}
