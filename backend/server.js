@@ -3,6 +3,7 @@ require('dotenv').config();
 const nodemailer = require('nodemailer');
 const morgan = require('morgan');
 const app = express();
+const cors = require('cors');
 const port = process.env.PORT || 5000;
 const path = require('path');
 const productsRouter = require('./routes/products');
@@ -14,6 +15,8 @@ app.use(express.static(path.join(__dirname, 'client/build')))
 
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
 
 // create a GET route
 app.get('/express_backend', (req, res) => {
