@@ -1,12 +1,20 @@
 @import '../assets/variables';
 
 #illustrations {
+
+  .logo {
+    height: 2rem;
+    margin: 0.5em;
+    display: flex;
+    position: fixed;
+    visibility: hidden;
+  }
   
   ul {
     display: flex;
     flex-wrap: wrap;
     padding: 1em;
-    margin: 2em 6em;
+    margin: 2em 3em;
   }
   
   li {

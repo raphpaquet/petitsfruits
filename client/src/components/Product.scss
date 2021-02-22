@@ -1,0 +1,51 @@
+@import '../assets/variables';
+
+#solo-product {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0em 2em;
+  align-items: center;
+  .header {
+    .product-img {
+      width: 250px;
+      height: auto;
+      min-width: 100%;
+    }
+    .product-name {
+      font-family: $font-write;
+      color: $pink;
+      font-size: 1.6em;
+      font-weight: bold;
+      display: flex;
+      letter-spacing: 0.2em;
+    }
+    .price {
+      display: flex;
+      font-family: $font-para;
+      font-size: 1.3em;
+      letter-spacing: 0.2em;
+    }
+  }
+  .description {
+    font-size: 1.3em;
+    font-family: $font-para;
+    margin: 1em 0em;
+    text-transform: uppercase;
+  }
+  .add-cart {
+    background-color: $peach;
+    font-size: 2em;
+    margin-top: 1em;
+    min-width: 100%;
+    .add {
+      color: rgb(0, 0, 0);
+      align-items: center;
+      margin: 1em;
+      font-size: 0.5em;
+      font-family: $font-para;
+      text-transform: uppercase;
+    }
+  }
+}

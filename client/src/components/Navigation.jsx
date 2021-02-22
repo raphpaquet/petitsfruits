@@ -11,9 +11,6 @@ export default function Navigation() {
         <img className="logo" src="/images/logo.png"></img>
         <span className="name">| petitsfruits</span>
       </div>
-      {/* <div className="image-skate">
-        <img className="skate" src="./images/skate.png"></img>
-      </div> */}
       <div className="tab-button">
         <div className="tab-list">
           <HashLink to="#illustrations" className="action-btn">Illustrations</HashLink>
@@ -21,6 +18,9 @@ export default function Navigation() {
           <Link to="/store" className="action-btn">Magasin</Link>
           <HashLink to="#contact" className="action-btn">Contact</HashLink>
         </div>
+      </div>
+      <div className="image-skate">
+        <img className="skate" src="./images/skate.png"></img>
       </div>
     </section>
   )

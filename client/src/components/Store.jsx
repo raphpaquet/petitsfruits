@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import './Store.scss'
+import StoreNav from './StoreNav'
 
 
 export default function Store(props) {
@@ -16,10 +17,6 @@ export default function Store(props) {
    const [showClothing, setShowClothing] = useState(false);
    const [showAll, setShowAll] = useState(true)
 
-   // function to add border over categories
-   const addBorder = () => {
-
-   }
 
    // Axios call to get the products
    useEffect(() => {
@@ -54,8 +51,8 @@ export default function Store(props) {
             <div className="product-name">
             <Link to={'/product/' + product._id}>{product.name}</Link>
             </div>
-            <div className="product-brand">{product.description}</div>
-            <div className="product-price">${(product.price).toFixed(2)}</div>
+            <span className="product-price">{(product.price).toFixed(2)}$ |</span>
+            <button className="ajout"><span>ajouter</span></button>
             </div>
         </li>
     ))
@@ -74,7 +71,6 @@ export default function Store(props) {
             <div className="product-name">
             <Link to={'/product/' + product._id}>{product.name}</Link>
             </div>
-            <div className="product-brand">{product.description}</div>
             <div className="product-price">{(product.price).toFixed(2)}$</div>
             </div>
         </li>
@@ -111,10 +107,7 @@ export default function Store(props) {
 
       return (
         <section id='store'>
-          <div className='page-title'>
-            <Link to="/"><img className="logo" src="/images/logo.png"></img></Link>
-            <span className="name">| boutique</span>
-          </div>
+          <StoreNav />
           <div className="categories">
             <button className="category-btn" onClick={() => getCategory('Peinture')}>Peintures</button>
             <button className="category-btn" onClick={() => getCategory('Illustration')}>Illustrations</button>

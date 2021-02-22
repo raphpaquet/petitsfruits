@@ -14,12 +14,13 @@
     margin-top: 1em;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+    font-size: 1.5em;
     
   }
   .contact-form {
     display: flex;
     flex-direction: column;
-    margin: 2em 20em; 
+    margin: 2em 3em; 
     .form-input {
       background-color: transparent;
       height: 2em;
@@ -112,24 +113,4 @@ button {
 }
 
 @media (max-width: 480px) {
-  #contact {
-    h1 {
-      font-size: 3em;
-    }
-    .contact-form {
-      margin: 1em 15em;
-      .form-input {
-        font-size: 24px;
-
-        .msg {
-          height: 60px;
-        }
-      }
-    }
-  }
-  .btn-one {
-   span {
-     font-size: 1.5em;
-   } 
-  }
 }

@@ -1,8 +1,11 @@
 import './Illustrations.scss';
 
+import { HashLink } from 'react-router-hash-link';
+
 export default function Illustrations() {
   return (
     <section id='illustrations'>
+      <HashLink to="#navbar"><img className="logo" src="./images/logo.png"></img></HashLink>
       <ul>
         <li>
           <img className="img-illustration" src="./images/alien_bagel.jpg"></img>

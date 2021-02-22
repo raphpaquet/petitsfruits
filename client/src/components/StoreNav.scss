@@ -1,0 +1,27 @@
+@import '../assets/variables';
+
+
+#navbar {
+  width: 100%;
+  border-bottom: 1px solid $peach;
+}
+.page-title {
+  background-color: $purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .logo {
+    height: 3rem;
+    margin: 1em;
+  }
+  a {
+    text-decoration: none;
+  .name {
+    text-transform: uppercase;
+    color: $peach;
+    font-family: $font-title;
+    font-size: 2rem;
+
+    }
+  }
+}
