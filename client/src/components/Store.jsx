@@ -15,7 +15,6 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 export default function Store(props) {
   
-  // const {showPaint, showSticker, showClothing, showIllustration, showAll} = props
    const [products, setProducts] = useState('');
    
    const [loadingProducts, setLoadingProducts] = useState(true);
@@ -83,38 +82,43 @@ export default function Store(props) {
     //   },
     // ]
     
-    // // sidebar open/close
-    // const openMenu = () => {
-    //   document.querySelector('.sidebar').classList.add('open');
-    // };
-    // const closeMenu = () => {
-    //   document.querySelector('.sidebar').classList.remove('open');
-    // };
+    // sidebar open/close
+    const openMenu = () => {
+      document.querySelector('.sidebar').classList.add('open');
+    };
+    const closeMenu = () => {
+      document.querySelector('.sidebar').classList.remove('open');
+    };
 
     // Render ALL products
     const listProductsToBuy = () => products.map((product) => (
         <li key={product.id}>
           <div className="product">
-            <Link to={'/product/' + product.id}>
-              <img
-                className="product-image"
-                src={product.image}
-                alt="product-image"
-              />
-            </Link>
-            <div className="product-name">
-            <Link to={'/product/' + product._id}>{product.name}</Link>
+            <div className='product-img'>
+              <Link to={'/product/' + product.id}>
+                <img
+                  className="product-image"
+                  src={product.image}
+                  alt="product-image"
+                />
+              </Link>
             </div>
-            <span className="product-price">{(product.price).toFixed(2)}$ |</span>
-            <button className="ajout"><span>ajouter</span></button>
+            <div className='product-footer'>
+              <div className="product-name">
+                <Link to={'/product/' + product._id}>{product.name}</Link>
+              </div>
+              <span className="product-price">{(product.price).toFixed(2)}$ |</span>
+              <button className="ajout"><span>ajouter</span></button>
             </div>
+          </div>
         </li>
     ))
 
     // Render product by CATEGORIES
     const listCategoryProduct = (cat) => products.filter(product => product.category === cat).map((product) => (
-        <li key={product.id}>
-          <div className="product">
+      <li key={product.id}>
+        <div className="product">
+          <div className='product-img'>
             <Link to={'/product/' + product.id}>
               <img
                 className="product-image"
@@ -122,57 +126,66 @@ export default function Store(props) {
                 alt="product-image"
               />
             </Link>
+          </div>
+          <div className='product-footer'>
             <div className="product-name">
-            <Link to={'/product/' + product._id}>{product.name}</Link>
+              <Link to={'/product/' + product._id}>{product.name}</Link>
             </div>
-            <div className="product-price">{(product.price).toFixed(2)}$</div>
-            </div>
-        </li>
+            <span className="product-price">{(product.price).toFixed(2)}$ |</span>
+            <button className="ajout"><span>ajouter</span></button>
+          </div>
+        </div>
+      </li>
     ))
 
-    // // Helps set the state when choosing a category
-    // const getCategory = (category) => {
-    //   if (category == 'Peinture') {
-    //     setShowPaint(true)
-    //   } else if (category !== 'Peinture') {
-    //     setShowPaint(false)
-    //   }
-    //   if (category == 'Illustration') {
-    //     setShowIllustration(true)
-    //   } else if (category !== 'Illustration') {
-    //     setShowIllustration(false)
-    //   }
-    //   if (category == 'Sticker') {
-    //     setShowSticker(true)
-    //   } else if (category !== 'Sticker') {
-    //     setShowSticker(false)
-    //   }
-    //   if (category == 'Clothing') {
-    //     setShowClothing(true)
-    //   } else if (category !== 'Clothing') {
-    //     setShowClothing(false)
-    //   }
-    //   if (category == 'All') {
-    //     setShowAll(true)
-    //   } else if (category !== 'All') {
-    //     setShowAll(false)
-    //   }
-    // }
+    // Helps set the state when choosing a category
+    const getCategory = (category) => {
+      if (category == 'Peinture') {
+        setShowPaint(true)
+        closeMenu()
+        console.log(showPaint)
+      } else if (category !== 'Peinture') {
+        setShowPaint(false)
+      }
+      if (category == 'Illustration') {
+        setShowIllustration(true)
+        closeMenu()
+      } else if (category !== 'Illustration') {
+        setShowIllustration(false)
+      }
+      if (category == 'Sticker') {
+        setShowSticker(true)
+        closeMenu()
+      } else if (category !== 'Sticker') {
+        setShowSticker(false)
+      }
+      if (category == 'Clothing') {
+        setShowClothing(true)
+        closeMenu()
+      } else if (category !== 'Clothing') {
+        setShowClothing(false)
+      }
+      if (category == 'All') {
+        setShowAll(true)
+        closeMenu()
+      } else if (category !== 'All') {
+        setShowAll(false)
+      }
+    }
 
       return (
         <section id='store'>
-          <StoreNav 
-          />
-          {/* <section id='storeNav'>
+          <section id='storeNav'>
             <button onClick={openMenu} className='burger-btn'>
               &#9776;
             </button>
             <Link to="/"><img className="logo" src="/images/logo.png"></img></Link>
-            <div className='page-title'>
-              <ShoppingCartIcon style={{color:'orange'}}/>
+            <div className='cart'>
+              <ShoppingCartIcon className="cart-icon"/>
             </div>
+          </section>
             <aside className="sidebar">
-                <h3>Shopping Categories</h3>
+                <h3>catégories</h3>
                 <button className="sidebar-close-button" onClick={closeMenu}>
                   x
                 </button>
@@ -184,7 +197,6 @@ export default function Store(props) {
                   <button className="category-btn" onClick={() => getCategory('All')}>Tout</button>
                 </div>
             </aside>
-          </section> */}
           {/* <StoreNav /> */}
           {/* <div className="categories">
             <button className="category-btn" onClick={() => getCategory('Peinture')}>Peintures</button>
