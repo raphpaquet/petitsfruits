@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 @import './assets/variables';
 
-body, html {
+
+html {
+  font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
   margin: 0;
   background-color: $purple;
   overflow: scroll;
-  font-size: 100%;
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

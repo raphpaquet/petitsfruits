@@ -1,5 +1,42 @@
 @import '../assets/variables';
 
+
+#storeNav {
+  width: 100%;
+  border-bottom: 1px solid $peach;
+  display: flex;
+  justify-content: space-around;
+}
+.burger-btn {
+  font-size: 2.5rem;
+  padding: 0.5rem;
+  background-color: none;
+  border:none;
+  cursor: pointer;
+  margin-top: 0;
+  color: $peach
+}
+.logo {
+  height: 3rem;
+  margin: 1em;
+}
+.page-title {
+  background-color: $purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    text-decoration: none;
+  .name {
+    text-transform: uppercase;
+    color: $peach;
+    font-family: $font-title;
+    font-size: 2rem;
+    }
+  }
+}
+
+
 #store {
   font-family: $font-title;
   font-size: 1.2em;
@@ -18,10 +55,11 @@
     padding: 1em;
     margin: 2em 6em;
     list-style: none;
-    margin: 2em;
+    margin: 1em;
   }
   .product {
     max-height: 100%;
+    // width: 300px;
     // min-width: 100%;
     // object-fit: cover;
     vertical-align: bottom;
@@ -31,13 +69,15 @@
     margin: 1em;
 
     .product-image {
-      width:auto;
-      height: 150px;;
+      width: auto;
+      height: 250px;
+      max-width: 100%;
     }
     .product-name {
       font-family: $font-write;
-      font-size: 1.6em;
+      font-size: 1.2em;
       margin: 2em 0em 0.3em;
+      text-transform: uppercase;
       a {
         outline: none;
         color: $pink;
@@ -67,19 +107,5 @@
     }
   }
 
-  .categories {
-    list-style: none;
-    margin: 1em 2em; 
-    .category-btn {
-      color: $pink;
-      font-family: $font-title;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      border-left: 1px solid $pink;
-    }
-    .category-btn:focus {
-      border: 1px solid $pink;
-      padding: 10px
-    }
-  }
+
 }

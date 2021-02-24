@@ -2,6 +2,8 @@ import './Product.scss';
 import StoreNav from './StoreNav';
 
 export default function Product(props) {
+  console.log(props.match.params.id)
+
   return (
     <section id="solo-product">
       <StoreNav />
