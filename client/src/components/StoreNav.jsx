@@ -1,10 +1,12 @@
-import './StoreNav.scss';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useHistory } from 'react-router-dom'
 
 
 export default function StoreNav(props) {
+
+  const history = useHistory()
   // const [showIllustration, setShowIllustration] = useState(false);
   // const [showPaint, setShowPaint] = useState(false);
   // const [showSticker, setShowSticker] = useState(false);
@@ -23,6 +25,8 @@ export default function StoreNav(props) {
      const getCategory = (category) => {
       if (category == 'Peinture') {
         setShowPaint(true)
+        console.log('PAINT')
+        console.log(showPaint)
       } else if (category !== 'Peinture') {
         setShowPaint(false)
       }
@@ -33,6 +37,8 @@ export default function StoreNav(props) {
       }
       if (category == 'Sticker') {
         setShowSticker(true)
+        console.log('STICKERS')
+        console.log(showSticker)
       } else if (category !== 'Sticker') {
         setShowSticker(false)
       }
@@ -50,27 +56,28 @@ export default function StoreNav(props) {
 
   return (
     <section id='storeNav'>
-    <button onClick={openMenu} className='burger-btn'>
+    {/* <button onClick={openMenu} className='burger-btn'>
       &#9776;
-    </button>
+    </button> */}
+    <button onClick={() => history.goBack()} className="back">Back</button>
     <Link to="/"><img className="logo" src="/images/logo.png"></img></Link>
     <div className='page-title'>
       {/* <Link to="/store"><span className="name">| boutique</span></Link> */}
-      <ShoppingCartIcon style={{color:'orange'}}/>
+      <ShoppingCartIcon className="cart-icon" />
     </div>
-    <aside className="sidebar">
+    {/* <aside className="sidebar">
         <h3>catégories</h3>
         <button className="sidebar-close-button" onClick={closeMenu}>
           x
         </button>
         <div className="categories">
-          <button className="category-btn" onClick={() => getCategory('Peinture'), closeMenu}>Peintures</button>
-          <button className="category-btn" onClick={() => getCategory('Illustration'), closeMenu}>Illustrations</button>
-          <button className="category-btn" onClick={() => getCategory('Sticker'), closeMenu}>Stickers</button>
-          <button className="category-btn" onClick={() => getCategory('Clothing'), closeMenu}>T-Shirts</button>
-          <button className="category-btn" onClick={() => getCategory('All'), closeMenu}>Tout</button>
+          <button className="category-btn" onClick={() => getCategory('Peinture')}>Peintures</button>
+          <button className="category-btn" onClick={() => getCategory('Illustration')}>Illustrations</button>
+          <button className="category-btn" onClick={() => getCategory('Sticker')}>Stickers</button>
+          <button className="category-btn" onClick={() => getCategory('Clothing')}>T-Shirts</button>
+          <button className="category-btn" onClick={() => getCategory('All')}>Tout</button>
         </div>
-    </aside>
+    </aside> */}
   </section>
   )
 }

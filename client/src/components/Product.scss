@@ -27,6 +27,14 @@
       font-family: $font-para;
       font-size: 1.3em;
       letter-spacing: 0.2em;
+      flex-direction: column;
+      align-items: flex-start;
+      .qte {
+        font-size: 0.5em;
+        .qte-select {
+          background-color: transparent;
+        }
+      }
     }
   }
   .description {
@@ -35,18 +43,23 @@
     margin: 1em 0em;
     text-transform: uppercase;
   }
-  .add-cart {
-    background-color: $peach;
-    font-size: 2em;
-    margin-top: 1em;
-    min-width: 100%;
-    .add {
-      color: rgb(0, 0, 0);
-      align-items: center;
-      margin: 1em;
-      font-size: 0.5em;
-      font-family: $font-para;
-      text-transform: uppercase;
+  .action {
+    .add-cart {
+      background-color: $peach;
+      font-size: 2em;
+      margin-top: 1em;
+      min-width: 100%;
+      .add {
+        color: rgb(0, 0, 0);
+        align-items: center;
+        margin: 0.5em;
+        font-size: 0.5em;
+        font-family: $font-para;
+        text-transform: uppercase;
+      }
+      &:hover {
+        border: 3px solid $pink
+      }
     }
   }
 }
