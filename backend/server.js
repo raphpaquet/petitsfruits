@@ -4,11 +4,12 @@ const nodemailer = require('nodemailer');
 const morgan = require('morgan');
 const app = express();
 const cors = require('cors');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4444;
 const path = require('path');
 const productsRouter = require('./routes/products');
-const db = require('./db')
-const dbHelpers = require('./helpers/dbhelpers')(db)
+const db = require('./db');
+const dbHelpers = require('./helpers/dbhelpers')(db);
+import data from './data';
 
 // Serve static files from the React frontend app
 app.use(express.static(path.join(__dirname, 'client/build')))
@@ -32,7 +33,10 @@ app.use('/sendtome', require('./routes/sendToMe'))
 // })
 
 //db routes
-app.use('/api/products', productsRouter(dbHelpers));
+// app.use('/api/products', productsRouter(dbHelpers));
+app.get("/api/products", (req, res) => {
+  res.send(data.products)
+})
 
 
 // console.log that your server is up and running
