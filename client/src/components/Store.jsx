@@ -2,11 +2,9 @@ import './Store.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
+import { listProducts } from '../actions/productActions'
 import { useEffect, useState } from 'react';
 import './Store.scss';
-import StoreNav from './StoreNav';
-import './StoreNav.scss';
-
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 
@@ -14,8 +12,10 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 
 export default function Store(props) {
-  
-   const [products, setProducts] = useState('');
+
+   //const [products, setProducts] = useState('');
+   const productList = useSelector(state => state.productList);
+   const { products, loading, error } = productList;
    
    const [loadingProducts, setLoadingProducts] = useState(true);
    const [showIllustration, setShowIllustration] = useState(false);
@@ -23,64 +23,24 @@ export default function Store(props) {
    const [showSticker, setShowSticker] = useState(false);
    const [showClothing, setShowClothing] = useState(false);
    const [showAll, setShowAll] = useState(true)
-
-
+   
+   
+   
    // Axios call to get the products
+   const dispatch = useDispatch();
    useEffect(() => {
-    axios.get(`/api/products`)
-      .then(res => {
-        setProducts(res.data)
-        setLoadingProducts(false)
-      })
-      .catch(error => {
-        console.log(error)
-      });
+     dispatch(listProducts())
+
+     return () => {
+      };
   }, []);
-  console.log(products)
+  console.log(productList)
 
-    // Makes sure that the products do not load before the axios call. 
-    if (loadingProducts) {
-      return <section className="products">Loading...
-      </section>
-    } 
-
-    // const products = [
-    //   {
-    //     id: '1',
-    //     name: 'Slim Shirt',
-    //     category: 'Shirts',
-    //     image: '/images/alien_bagel.jpg',
-    //     price: 60,
-    //     description: ' Nike',
-    //     rating: 4.5,
-    //     numReviews: 10,
-    //     countInStock: 6,
-    //     category: 'illustration'
-    //   },
-    //   {
-    //     id: '2',
-    //     name: 'Slim Shirt',
-    //     category: 'Shirts',
-    //     image: '/images/alien_jarry.jpg',
-    //     price: 60,
-    //     description: ' Nike',
-    //     rating: 4.5,
-    //     numReviews: 10,
-    //     countInStock: 6,
-    //     category: 'paint'
-    //   },{
-    //     id: '2',
-    //     name: 'Slim Shirt',
-    //     category: 'Shirts',
-    //     image: '/images/alien_stade.jpg',
-    //     price: 60,
-    //     description: ' Nike',
-    //     rating: 4.5,
-    //     numReviews: 10,
-    //     countInStock: 6,
-    //     category: 'sticker'
-    //   },
-    // ]
+    // // Makes sure that the products do not load before the axios call. 
+    // if (loadingProducts) {
+    //   return <section className="products">Loading...
+    //   </section>
+    // } 
     
     // sidebar open/close
     const openMenu = () => {
@@ -119,7 +79,7 @@ export default function Store(props) {
       <li key={product.id}>
         <div className="product">
           <div className='product-img'>
-            <Link to={'/product/' + product.id}>
+            <Link to={'/product/' + product._id}>
               <img
                 className="product-image"
                 src={product.image}
@@ -197,50 +157,37 @@ export default function Store(props) {
                   <button className="category-btn" onClick={() => getCategory('All')}>Tout</button>
                 </div>
             </aside>
-          {/* <StoreNav /> */}
-          {/* <div className="categories">
-            <button className="category-btn" onClick={() => getCategory('Peinture')}>Peintures</button>
-            <button className="category-btn" onClick={() => getCategory('Illustration')}>Illustrations</button>
-            <button className="category-btn" onClick={() => getCategory('Sticker')}>Stickers</button>
-            <button className="category-btn" onClick={() => getCategory('Clothing')}>T-Shirts</button>
-            <button className="category-btn" onClick={() => getCategory('All')}>Tout</button>
-          </div> */}
-          {showPaint === true ? (
-            <div className="paint">
-              <section className="products">
-                {listCategoryProduct('peinture')}
-              </section>
-            </div>
-          ) : null}
-          {showIllustration === true ? (
-            <div className="illustrations">
-              <section className='products'>
-                {listCategoryProduct('illustration')}
-              </section> 
-            </div>
-          ) : null}
-          {showClothing === true ? (
-            <div className="paint">
-              <section className="products">
-                {listCategoryProduct('clothing')}
-              </section>
-            </div>
-          ) : null}
-          {showSticker === true ? (
-            <div className="stickers">
-              <section className="products">
-                {listCategoryProduct('sticker')}
-              </section>
-            </div>
-          ) : null}
-          {showAll === true ? (
-            <div className="all">
-              <section className="products">
-                {listProductsToBuy()}
-              </section>
-            </div>
-          ) : null}
-      </section>
-    );
-  
-}
+                {loading ? (
+              <div>Loading...</div>
+            ) : error ? (
+              <div>{error}</div>
+            ) : (
+              <ul className="products">
+                {products.map((product) => (
+                   <li key={product.id}>
+                   <div className="product">
+                     <div className='product-img'>
+                       <Link to={'/product/' + product._id}>
+                         <img
+                           className="product-image"
+                           src={product.image}
+                           alt="product-image"
+                         />
+                       </Link>
+                     </div>
+                     <div className='product-footer'>
+                       <div className="product-name">
+                         <Link to={'/product/' + product._id}>{product.name}</Link>
+                       </div>
+                       <span className="product-price">{(product.price).toFixed(2)}$ |</span>
+                       <button className="ajout"><span>ajouter</span></button>
+                     </div>
+                   </div>
+                 </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        )
+         
+      }

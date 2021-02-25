@@ -1,7 +1,7 @@
 export default {
   products: [
     {
-      id: '1',
+      _id: '1',
       name: 'Slim Shirt',
       category: 'Shirts',
       image: '/images/alien_bagel.jpg',
@@ -12,7 +12,7 @@ export default {
       countInStock: 6,
     },
     {
-      id: '2',
+      _id: '2',
       name: 'Fit Shirt',
       category: 'Shirts',
       image: '/images/alien_bagel.jpg',
@@ -22,7 +22,7 @@ export default {
       numReviews: 5
     },
     {
-      id: '3',
+      _id: '3',
       name: 'Best Pants',
       category: 'Pants',
       image: '/images/alien_bagel.jpg',
@@ -32,7 +32,7 @@ export default {
       numReviews: 8,
       countInStock: 6,
     }, {
-      id: '4',
+      _id: '4',
       name: 'Best Pants',
       category: 'Pants',
       image: '/images/alien_bagel.jpg',
