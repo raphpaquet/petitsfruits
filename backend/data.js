@@ -1,7 +1,7 @@
 export default {
   products: [
     {
-      id: '1',
+      _id: '1',
       name: 'Slim Shirt',
       category: 'Shirts',
       image: '/images/alien_bagel.jpg',
@@ -9,20 +9,21 @@ export default {
       description: ' Nike',
       rating: 4.5,
       numReviews: 10,
-      countInStock: 6,
+      countInStock: 0,
     },
     {
-      id: '2',
+      _id: '2',
       name: 'Fit Shirt',
       category: 'Shirts',
       image: '/images/alien_bagel.jpg',
       price: 50,
       description: ' Nike',
       rating: 4.2,
-      numReviews: 5
+      numReviews: 5,
+      countInStock: 2,
     },
     {
-      id: '3',
+      _id: '3',
       name: 'Best Pants',
       category: 'Pants',
       image: '/images/alien_bagel.jpg',
@@ -30,9 +31,9 @@ export default {
       description: ' Nike',
       rating: 4.5,
       numReviews: 8,
-      countInStock: 6,
+      countInStock: 10,
     }, {
-      id: '4',
+      _id: '4',
       name: 'Best Pants',
       category: 'Pants',
       image: '/images/alien_bagel.jpg',
@@ -40,7 +41,7 @@ export default {
       description: ' Nike',
       rating: 4.5,
       numReviews: 8,
-      countInStock: 6,
+      countInStock: 1,
     },
   ]
 }
