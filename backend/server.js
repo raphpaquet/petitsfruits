@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const morgan = require('morgan');
 const app = express();
 const cors = require('cors');
-const port = process.env.PORT || 4444;
+const port = process.env.PORT || 4002;
 const path = require('path');
 const productsRouter = require('./routes/products');
 const db = require('./db');
@@ -33,11 +33,22 @@ app.use('/sendtome', require('./routes/sendToMe'))
 // })
 
 //db routes
+
+// Product details route
+app.get("/api/products/:id", (req, res) => {
+  const productId = req.params.id;
+  const product = data.products.find(x => x._id === productId);
+  if(product) {
+    res.send(product);
+  }else {
+    res.status(404).send({ msg: "Product Not Found. " })
+  }
+});
+
 // app.use('/api/products', productsRouter(dbHelpers));
 app.get("/api/products", (req, res) => {
   res.send(data.products)
 })
-
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
