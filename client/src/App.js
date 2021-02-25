@@ -14,6 +14,7 @@ import PlaceOrder from './components/PlaceOrder';
 import Product from './components/Product';
 import Cart from './components/Cart';
 import Payment from './components/Payment';
+import Signin from './components/Signin';
 
 
 const history = createBrowserHistory();
@@ -30,6 +31,7 @@ function App() {
           <Route path="/placeorder" component={PlaceOrder} />
           <Route path="/product/:id" component={Product} />
           <Route path="/cart/:id?" component={Cart} />
+          <Route path='/signin' component={Signin} />
           <Route path='/' exact={true}>
             <Navigation />
             <Illustrations />
