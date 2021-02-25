@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { addToCart, removeFromCart } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
-import { cartReducer } from "../reducers/cartReducers";
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import { Link } from 'react-router-dom';
-
+import './Cart.scss';
 
 
 export default function Cart(props) {
@@ -34,18 +33,14 @@ export default function Cart(props) {
     <div className="cart-list">
       <ul className="cart-list-container">
         <li>
-          <h3>
-            Shopping Cart
-          </h3>
+          <h3>Shopping Cart</h3>
           <div>
-            Price
+            Price :
           </div>
         </li>
         {
           cartItems.length === 0 ?
-            <div>
-              Cart is empty
-          </div>
+            <div>Cart is empty</div>
             :
             cartItems.map(item =>
               <li>
@@ -57,7 +52,6 @@ export default function Cart(props) {
                     <Link to={"/product/" + item.product}>
                       {item.name}
                     </Link>
-
                   </div>
                   <div>
                     Qty:
@@ -65,7 +59,7 @@ export default function Cart(props) {
                       {[...Array(item.countInStock).keys()].map(x =>
                         <option key={x + 1} value={x + 1}>{x + 1}</option>
                       )}
-                    </select>
+                  </select>
                     <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)} >
                       Delete
                     </button>
