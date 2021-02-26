@@ -3,20 +3,23 @@
 #about {
   margin-top: 5em;
   background-color: white;
-  height: 60vh;
-  font-size: 1rem;
+  height: auto;
+  font-size: 2rem;
   h2 {
-    padding-top: 2em;
+    padding-top: 1em;
     color: $peach;
     font-family: $font-title;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: 1.3em;
+    margin-bottom: 0em;
   }
   .about-text {
     color: $peach;
-    font-family: sans-serif;
-    margin: 2em 3em;
+    font-family: $font-para;
+    margin: 2em 2em;
     text-align: justify;
+    font-size: 2rem;
+    padding-bottom: 1em;
   }
 }

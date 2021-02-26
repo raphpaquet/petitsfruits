@@ -14,34 +14,36 @@ export default function Navigation() {
     };
 
   return (
-    <section id="navbar">
-            <button onClick={openMenu} className='burger-btn'>
-              &#9776;
-            </button>
-            <Link to="/"><img className="logo" src="/images/logo.png"></img></Link>
-            <div className='cart'>
-              <Link to="/store" className="cart-icon">SHOP</Link>
-            </div>
-            <aside className="sidebar">
-                <h3>catégories</h3>
-                <button className="sidebar-close-button" onClick={closeMenu}>
-                  x
-                </button>
-                <ul className="categories">
+   <section id="navbar">
+      <button onClick={openMenu} className='burger-btn'>
+         &#9776;
+      </button>
+      <div className='petitsfruits'>
+        <Link to="/"><img className="logo" src="/images/logo.png"></img></Link>
+        <span>PETITSFRUITS</span>
+      </div>
+      <div className='cart'>
+        <Link to="/store" className="cart-icon">SHOP</Link>
+      </div>
+      <aside className="sidebar">
+         <button className="sidebar-close-button" onClick={closeMenu}>
+            x
+         </button>
+           <ul className="categories">
             <li>
-              <HashLink to="#illustrations" className="action-btn">Illustrations</HashLink>
+              <HashLink to="#illustrations" className="category-btn" onClick={closeMenu}>Illustrations</HashLink>
             </li>
             <li>
-              <HashLink to="#about" className="action-btn">Petitsfruits</HashLink>
+              <HashLink to="#about" className="category-btn" onClick={closeMenu}>Petitsfruits</HashLink>
             </li>
             <li>
-              <Link to="/store" className="action-btn">Magasin</Link>
+              <Link to="/store" className="category-btn" onClick={closeMenu}>Magasin</Link>
             </li>
             <li>
-              <HashLink to="#contact" className="action-btn">Contact</HashLink>
+              <HashLink to="#contact" className="category-btn" onClick={closeMenu}>Contact</HashLink>
             </li>
-          </ul>
-          </aside>
+           </ul>
+      </aside>
     </section>
   )
 }

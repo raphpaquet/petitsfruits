@@ -1,6 +1,9 @@
+@import '../assets/variables';
+
 #footer {
+  bottom: 0;
   margin-bottom: 20px;
-  height: 7rem;
+  height: 10rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -11,12 +14,23 @@
     font-size: 0.8rem;
   }
   .social {
-    transform: scale(1.5);
+    transform: scale(2);
+    margin: 0rem 1rem;
+    outline: none;
+    color: $pink;
+    text-decoration: none;
   }
   .admin {
     font-size: 0.5rem;
     text-decoration: none;
     margin: 1rem;
     outline: none;
+  }
+  .admin-text {
+    font-size: 0.5rem;
+    text-decoration: none;
+    margin: 1rem;
+    outline: none;
+    color: black;
   }
 }

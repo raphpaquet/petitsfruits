@@ -32,69 +32,6 @@
   margin-top: 0;
 }
 
-/* Sidebar Menu*/
-
-.sidebar {
-  top: 0;
-  position: fixed;
-  transition: all 0.5s;
-  transform: translateY(-100rem);
-  width: 100%;
-  background-color: #f0f0f0;
-  height: 100%;
-  background-color: purple;
-  opacity: 0.9;
-}
-.sidebar.open {
-  transform: translateY(0);
-}
-
-.sidebar-close-button {
-  border-radius: 50%;
-  border: 0.1rem #000000 solid;
-  width: 3rem;
-  height: 3rem;
-  padding: 0.5rem;
-  font-size: 2rem;
-  padding-top: 0;
-  cursor: pointer;
-  position: absolute;
-  right: 0.5rem;
-  margin: 0.8em;
-  top: 0
-}
-h3 {
-  text-transform: uppercase;
-  font-family: $font-title;
-  font-size: 2rem;
-  letter-spacing: 0.2em;
-  margin-top: 1em;
-  color: $peach
-}
-.categories {
-  list-style: none;
-  margin: 1em 2em; 
-  display: flex;
-  flex-direction: column;
-  .category-btn {
-    color: $pink;
-    font-family: $font-title;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-size: 1.6rem;
-    cursor: pointer;
-  }
-  .category-btn:hover {
-    border: 1px solid $pink;
-    padding: 10px
-  }
-  .category-btn:focus {
-    border: 1px solid $pink;
-    padding: 10px
-  }
-}
-
-
 
 /* Actual Store */
 #store {
@@ -102,6 +39,10 @@ h3 {
   font-size: 1.2em;
   height: 100%;
   min-height: 100vh;
+  .category-title {
+    text-transform: uppercase;
+    color: $peach
+  }
   h1 {
     text-transform: uppercase;
     color: $peach;
@@ -111,27 +52,26 @@ h3 {
   }
   .products {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 1em;
-    margin: 2em 6em;
+    margin: 1em 0.5em;
     list-style: none;
-    margin: 1em;
   }
   .product {
-    max-height: 100%;
-    // width: 300px;
-    // min-width: 100%;
-    // object-fit: cover;
-    vertical-align: bottom;
-    // box-shadow: 2px 3px #e2e6ee;
-    flex-grow: 1;
-    list-style: none;
-    margin: 1em;
-
+    list-style-type: none;
+    padding: 0;
+    flex: 0 1 34rem;
+    margin: 1rem;
+    height: 40rem;
+    box-shadow: 2px 3px #e2e6ee;
     .product-image {
-      width: auto;
-      height: 250px;
-      max-width: 100%;
+      max-width: auto;
+      max-height: 20rem;
+      // box-shadow: 4px 5px #bec4d2;
+      // width: auto;
+      // height: 250px;
+      // max-width: 100%;
     }
     .product-name {
       font-family: $font-write;

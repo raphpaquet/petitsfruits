@@ -7,9 +7,8 @@ import './HomePage.scss'
 export default function HomePage() {
   return (
     <section id="homepage">
-      <div className="homepage-img" style={{ backgroundImage: "url('../images/skate.png')" }}>
+      {/* <div className="homepage-img" style={{ backgroundImage: "url('../images/skate.png')" }}> */}
       <Navigation />
-      </div>
       <Illustrations />
       <About />
       <Contact />

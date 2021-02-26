@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { createOrder } from '../actions/orderActions';
 import './PlaceOrder.scss';
+import './Cart.scss';
 
 
 export default function PlaceOrder(props) {
@@ -45,7 +46,7 @@ export default function PlaceOrder(props) {
       <div className="placeorder-info">
         <div>
           <h3>
-            Shipping
+            Livraison
           </h3>
           <div>
             {cart.shipping.address}, {cart.shipping.city},
@@ -53,25 +54,25 @@ export default function PlaceOrder(props) {
           </div>
         </div>
         <div>
-          <h3>Payment</h3>
+          <h3>Paiement</h3>
           <div>
-            Payment Method: {cart.payment.paymentMethod}
+            Méthode de paiement: {cart.payment.paymentMethod}
           </div>
         </div>
         <div>
           <ul className="cart-list-container">
             <li>
               <h3>
-                Shopping Cart
+                Aperçu de la commande
           </h3>
               <div>
-                Price
+                Prix
           </div>
             </li>
             {
               cartItems.length === 0 ?
                 <div>
-                  Cart is empty
+                  Le panier est vide
           </div>
                 :
                 cartItems.map(item =>
@@ -87,11 +88,11 @@ export default function PlaceOrder(props) {
 
                       </div>
                       <div>
-                        Qty: {item.qty}
+                        Qté: {item.qty}
                       </div>
                     </div>
                     <div className="cart-price">
-                      ${item.price}
+                      {(item.price).toFixed(2)}$
                     </div>
                   </li>
                 )
@@ -104,26 +105,26 @@ export default function PlaceOrder(props) {
       <div className="placeorder-action">
         <ul>
           <li>
-            <button className="button primary full-width"  >Place Order</button>
+            <button className="button primary full-width"  >Placer la commande</button>
           </li>
           <li>
-            <h3>Order Summary</h3>
+            <h3>Résumé de la commande</h3>
           </li>
           <li>
             <div>Items</div>
-            <div>${itemsPrice}</div>
+            <div>{(itemsPrice).toFixed(2)}$</div>
           </li>
           <li>
-            <div>Shipping</div>
-            <div>${shippingPrice}</div>
+            <div>Livraison</div>
+            <div>{(shippingPrice).toFixed(2)}$</div>
           </li>
           <li>
-            <div>Tax</div>
-            <div>${taxPrice}</div>
+            <div>Taxes</div>
+            <div>{(taxPrice).toFixed(2)}$</div>
           </li>
           <li>
-            <div>Order Total</div>
-            <div>${totalPrice}</div>
+            <div>Total de la commande</div>
+            <div>{(totalPrice).toFixed(2)}$</div>
           </li>
         </ul>
 

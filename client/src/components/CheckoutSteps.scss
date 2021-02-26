@@ -6,15 +6,17 @@
   display: flex;
   justify-content: space-between;
   width: 40rem;
-  margin: 1rem auto;
+  margin: 3rem auto;
   div {
     border-top: 0.3rem #c0c0c0 solid;
-    color: $peach;
+    color: rgb(182, 182, 182);
     flex: 1 1;
     padding-top: 1rem;
   }
-  &:active {
+  .active {
     border-top: 0.3rem $peach solid;
     color: $peach;
   }
 }
+
+

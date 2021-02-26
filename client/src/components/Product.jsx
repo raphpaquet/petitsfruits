@@ -30,7 +30,7 @@ export default function Product(props) {
       ) : error ? (
       <div>{error}</div> 
       ) : (
-        <div className="header">
+        <div className="product-container">
         <img className="product-img" src={product.image}></img>
           <h1 className="product-name">{product.name}</h1>
           <div className="price">{(product.price)}$

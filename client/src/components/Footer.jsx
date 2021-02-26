@@ -11,18 +11,18 @@ export default function Footer() {
 
   return (
   <footer id="footer">
-    <div className="social">
-      <FacebookIcon />
-      <InstagramIcon />
+    <div>
+      <a href="https://www.facebook.com/petitsfruitsillustration/" target="_blank"><FacebookIcon className="social" /></a>
+      <InstagramIcon className="social"/>
     </div>
     <div className="admin">
     {userInfo ? (
         <div>Connected</div>
         ) : (
-        <Link to="/signin">Admin</Link>
+        <Link className="admin-text" to="/signin">Admin</Link>
       )}
         {userInfo && userInfo.isAdmin && (
-          <Link to="/products">Sarah Page</Link>
+          <Link className="admin-text" to="/products">Sarah Page</Link>
         )}
     </div>
     <div className="rights">
