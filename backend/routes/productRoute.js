@@ -1,14 +1,23 @@
 import express from 'express';
 import Product from '../models/productModel';
-import { getToken } from '../utils'
+import { getToken, isAdmin, isAuth } from '../utils'
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  const products = await Product.find({}); 
+// /* GET LIST OF PRODUCTS */
+// router.get("/", async (req, res) => {
+//   const products = await Product.find({}); 
+//   res.send(products);
+// });
+
+/* GET PRODUCT BY CATEGORY */
+router.get('/', async (req, res) => {
+  const category = req.query.category ? { category: req.query.category } : {};
+  const products = await Product.find({ ...category });
   res.send(products);
 });
 
+/* GET PRODUCT BY ID */
 router.get('/:id', async (req, res) => {
   const product = await Product.findOne({ _id: req.params.id });
   if (product) {
@@ -18,7 +27,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post("/", async(req, res) => {
+/* CREATE NEW PRODUCT */
+router.post("/", isAuth, isAdmin, async(req, res) => {
   const product = new Product({
     name: req.body.name,
     price: req.body.price,
@@ -34,7 +44,8 @@ router.post("/", async(req, res) => {
   return res.status(500).send({ msg: "Error in Creating Product. "})
 })
 
-router.put("/:id", async (req, res) => {
+/* UPDATE PRODUCT */
+router.put("/:id", isAuth, isAdmin, async (req, res) => {
   const productId = req.params.id;
   const product = await Product.findById(productId);
   if (product) {
@@ -46,13 +57,14 @@ router.put("/:id", async (req, res) => {
     product.countInStock = req.body.countInStock;
     const updatedProduct = await product.save();
     if(updatedProduct) {
-      res.status(200).send({ msg: "Product Updated", data: updatedProduct })
+      return res.status(200).send({ msg: "Product Updated", data: updatedProduct })
     }
   }
   return res.status(500).send({ msg: "Error in Updated Product. "})
 });
 
-router.delete("/:id", (req, res) => {
+/* DELETE PRODUCT */
+router.delete("/:id", isAuth, isAdmin, async (req, res) => {
   const deletedProduct = await Product.findById(req.params.id);
   if(deletedProduct) {
     await deletedProduct.remove();

@@ -16,14 +16,14 @@ router.post('/signin', async (req, res) => {
       name: signinUser.name,
       email: signinUser.email,
       isAdmin: signinUser.isAdmin,
-      token: getToken(signinUser)
+      token: getToken(signinUser),
     })
   } else {
-    res.status(404).send({msg: 'Invalid Email or password.'})
+    res.status(401).send({msg: 'Invalid Email or password.'})
   }
 })
 
-router.get("/createadmin", async (req, res) => {
+router.get('/createadmin', async (req, res) => {
   try {
     const user = new User({
       name: 'Sarah',
@@ -31,7 +31,6 @@ router.get("/createadmin", async (req, res) => {
       password: 'test',
       isAdmin: true
     });
-  
     const newUser = await user.save();
     res.send(newUser); 
   } catch (error) {
