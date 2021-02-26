@@ -1,9 +1,10 @@
 @import '../assets/variables.scss';
 
 #contact {
-  background-color: $purple;
-  margin: 4em 0em;
-  padding: 2em;
+  background-color: #e8ecf6;
+    margin: 2em 0em;
+    padding: 1em;
+    position: relative;
   .title-button {
     float: right;
 
@@ -20,18 +21,19 @@
   .contact-form {
     display: flex;
     flex-direction: column;
-    margin: 2em 3em; 
+    margin: 1em; 
     .form-input {
       background-color: transparent;
       height: 2em;
       outline: none;
       color: $pink;
-      font-size: 1em;
+      font-size: 0.8em;
       font-family: $font-title;
       border-bottom: 1px solid $pink;
       border-top: none;
       border-right: none;
       border-left: none;
+      border-radius: 0px;
       .msg {
         overflow: visible;
       }

@@ -23,25 +23,24 @@ export default function Store(props) {
    const [showSticker, setShowSticker] = useState(false);
    const [showClothing, setShowClothing] = useState(false);
    const [showAll, setShowAll] = useState(true)
+   const category = props.match.params.id ? props.match.params.id : '';
    
+   const handleAddToCart = () => {
+    props.history.push("/cart/" + props.match.params.id + "?qty=1" )
+  }
    
    
    // Axios call to get the products
    const dispatch = useDispatch();
    useEffect(() => {
-     dispatch(listProducts())
+     dispatch(listProducts(category))
 
      return () => {
       };
-  }, []);
+  }, [category]);
   console.log(productList)
-
-    // // Makes sure that the products do not load before the axios call. 
-    // if (loadingProducts) {
-    //   return <section className="products">Loading...
-    //   </section>
-    // } 
     
+
     // sidebar open/close
     const openMenu = () => {
       document.querySelector('.sidebar').classList.add('open');
@@ -50,88 +49,41 @@ export default function Store(props) {
       document.querySelector('.sidebar').classList.remove('open');
     };
 
-    // Render ALL products
-    const listProductsToBuy = () => products.map((product) => (
-        <li key={product.id}>
-          <div className="product">
-            <div className='product-img'>
-              <Link to={'/product/' + product.id}>
-                <img
-                  className="product-image"
-                  src={product.image}
-                  alt="product-image"
-                />
-              </Link>
-            </div>
-            <div className='product-footer'>
-              <div className="product-name">
-                <Link to={'/product/' + product._id}>{product.name}</Link>
-              </div>
-              <span className="product-price">{(product.price).toFixed(2)}$ |</span>
-              <button className="ajout"><span>ajouter</span></button>
-            </div>
-          </div>
-        </li>
-    ))
 
-    // Render product by CATEGORIES
-    const listCategoryProduct = (cat) => products.filter(product => product.category === cat).map((product) => (
-      <li key={product.id}>
-        <div className="product">
-          <div className='product-img'>
-            <Link to={'/product/' + product._id}>
-              <img
-                className="product-image"
-                src={product.image}
-                alt="product-image"
-              />
-            </Link>
-          </div>
-          <div className='product-footer'>
-            <div className="product-name">
-              <Link to={'/product/' + product._id}>{product.name}</Link>
-            </div>
-            <span className="product-price">{(product.price).toFixed(2)}$ |</span>
-            <button className="ajout"><span>ajouter</span></button>
-          </div>
-        </div>
-      </li>
-    ))
-
-    // Helps set the state when choosing a category
-    const getCategory = (category) => {
-      if (category == 'Peinture') {
-        setShowPaint(true)
-        closeMenu()
-        console.log(showPaint)
-      } else if (category !== 'Peinture') {
-        setShowPaint(false)
-      }
-      if (category == 'Illustration') {
-        setShowIllustration(true)
-        closeMenu()
-      } else if (category !== 'Illustration') {
-        setShowIllustration(false)
-      }
-      if (category == 'Sticker') {
-        setShowSticker(true)
-        closeMenu()
-      } else if (category !== 'Sticker') {
-        setShowSticker(false)
-      }
-      if (category == 'Clothing') {
-        setShowClothing(true)
-        closeMenu()
-      } else if (category !== 'Clothing') {
-        setShowClothing(false)
-      }
-      if (category == 'All') {
-        setShowAll(true)
-        closeMenu()
-      } else if (category !== 'All') {
-        setShowAll(false)
-      }
-    }
+    // // Helps set the state when choosing a category
+    // const getCategory = (category) => {
+    //   if (category == 'Peinture') {
+    //     setShowPaint(true)
+    //     closeMenu()
+    //     console.log(showPaint)
+    //   } else if (category !== 'Peinture') {
+    //     setShowPaint(false)
+    //   }
+    //   if (category == 'Illustration') {
+    //     setShowIllustration(true)
+    //     closeMenu()
+    //   } else if (category !== 'Illustration') {
+    //     setShowIllustration(false)
+    //   }
+    //   if (category == 'Sticker') {
+    //     setShowSticker(true)
+    //     closeMenu()
+    //   } else if (category !== 'Sticker') {
+    //     setShowSticker(false)
+    //   }
+    //   if (category == 'Clothing') {
+    //     setShowClothing(true)
+    //     closeMenu()
+    //   } else if (category !== 'Clothing') {
+    //     setShowClothing(false)
+    //   }
+    //   if (category == 'All') {
+    //     setShowAll(true)
+    //     closeMenu()
+    //   } else if (category !== 'All') {
+    //     setShowAll(false)
+    //   }
+    // }
 
       return (
         <section id='store'>
@@ -149,14 +101,22 @@ export default function Store(props) {
                 <button className="sidebar-close-button" onClick={closeMenu}>
                   x
                 </button>
-                <div className="categories">
-                  <button className="category-btn" onClick={() => getCategory('Peinture')}>Peintures</button>
+                <ul className="categories">
+            <li>
+              <Link to="/category/Peintures">Peintures</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Stickers">Stickers</Link>
+            </li>
+          </ul>
+                  {/* <button className="category-btn" onClick={() => getCategory('Peinture')}>Peintures</button>
                   <button className="category-btn" onClick={() => getCategory('Illustration')}>Illustrations</button>
                   <button className="category-btn" onClick={() => getCategory('Sticker')}>Stickers</button>
                   <button className="category-btn" onClick={() => getCategory('Clothing')}>T-Shirts</button>
-                  <button className="category-btn" onClick={() => getCategory('All')}>Tout</button>
-                </div>
+                  <button className="category-btn" onClick={() => getCategory('All')}>Tout</button> */}
             </aside>
+            {category && <h2>{category}</h2>}
                 {loading ? (
               <div>Loading...</div>
             ) : error ? (
@@ -180,7 +140,7 @@ export default function Store(props) {
                          <Link to={'/product/' + product._id}>{product.name}</Link>
                        </div>
                        <span className="product-price">{(product.price).toFixed(2)}$ |</span>
-                       <button className="ajout"><span>ajouter</span></button>
+                       <button className="ajout" onClick={handleAddToCart}><span>ajouter</span></button>
                      </div>
                    </div>
                  </li>

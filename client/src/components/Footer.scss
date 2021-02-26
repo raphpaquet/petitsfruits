@@ -1,11 +1,22 @@
 #footer {
   margin-bottom: 20px;
-  height: 10px;
+  height: 7rem;
+  width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   .rights {
     align-items: center;
     margin-bottom: 10px;
     font-size: 0.8rem;
+  }
+  .social {
+    transform: scale(1.5);
+  }
+  .admin {
+    font-size: 0.5rem;
+    text-decoration: none;
+    margin: 1rem;
+    outline: none;
   }
 }

@@ -6,8 +6,10 @@ import {
   listProducts,
   deleteProduct
 } from '../actions/productActions';
+import './Products.scss'
+import StoreNav from './StoreNav'
 
-export default function ProductsScreen(props) {
+export default function Products(props) {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [id, setId] = useState('');
@@ -34,6 +36,7 @@ export default function ProductsScreen(props) {
     success: successDelete,
     error: errorDelete,
   } = productDelete;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -95,6 +98,7 @@ export default function ProductsScreen(props) {
   };
   return (
     <div className="content content-margined">
+      <StoreNav />
       <div className="product-header">
         <h3>Products</h3>
         <button className="button primary" onClick={() => openModal({})}>
@@ -142,8 +146,8 @@ export default function ProductsScreen(props) {
                   id="image"
                   onChange={(e) => setImage(e.target.value)}
                 ></input>
-                <input type="file" onChange={uploadFileHandler}></input>
-                {uploading && <div>Uploading...</div>}
+                {/* <input type="file" onChange={uploadFileHandler}></input>
+                {uploading && <div>Uploading...</div>} */}
               </li>
               <li>
                 <label htmlFor="countInStock">CountInStock</label>
@@ -201,6 +205,7 @@ export default function ProductsScreen(props) {
               <th>Name</th>
               <th>Price</th>
               <th>Category</th>
+              <th>Description</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -211,6 +216,7 @@ export default function ProductsScreen(props) {
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>{product.category}</td>
+                <td>{product.description}</td>
                 <td>
                   <button className="button" onClick={() => openModal(product)}>
                     Edit

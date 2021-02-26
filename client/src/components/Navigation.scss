@@ -2,8 +2,12 @@
 
 #navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  background-color: $purple;
+  width: 100%;
+  top: 0;
+  position: fixed;
   .page-title {
     background-color: $purple;
     display: flex;
@@ -20,28 +24,22 @@
       font-size: 2rem;
     }
   }
-
-  .image-skate {
-
-    .skate {
-      height: auto;
-      max-width: 100%;
-    }
-  }
-
   .tab-button {
     background-color: $purple;
     width:100%;
   }
   .tab-list {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
     color: $pink;
     font-family: $font-title;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    // height: 15vh;
+    font-size: 0.6em;
+    margin: 0em 4em;
+    line-height: 30px;
     .action-btn {
       text-decoration: none;
       outline: none;

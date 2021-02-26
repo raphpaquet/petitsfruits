@@ -89,7 +89,7 @@ export default function Contact() {
         <br></br>
         <input id="email" className="form-input" type="email" name="email" placeholder='Votre Courriel *' value={state.email} onChange={handleChange} required/>
         <br></br>
-        <input id="subject" className="form-input" type="text" name="subject" placeholder='Object' value={state.subject} onChange={handleChange}/>
+        <input id="subject" className="form-input" type="text" name="subject" placeholder='Objet' value={state.subject} onChange={handleChange}/>
         <br></br>
         <TextareaAutosize aria-label="empty textarea" id="message" className="form-input msg" name="message" placeholder='Message *' value={state.message} onChange={handleChange} required/>
         <br></br>
