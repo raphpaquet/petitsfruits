@@ -3,38 +3,41 @@
 #shipping {
   height: 100vh;
   .shipping-form {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
     .form-ship {
-      font-family: $font-para;
       display: flex;
+      font-family: $font-text;
       flex-direction: column;
-      width: 50rem;
       padding: 2rem;
-      border-radius: 0.5rem;
-      list-style-type: none;
+      width: 50rem;
       li {
         display: flex;
         flex-direction: column;
-        margin: 1rem;
         flex-grow: 1;
+        margin: 1rem;
         input {
           background-color: transparent;
-          border: 1px solid rgb(197, 194, 194);
+          border-bottom: 1px solid rgb(197, 194, 194);
+          border-top: none;
+          border-right: none;
+          border-left: none;
+          border-radius: 0;
+          height: 3rem;
         }
         select {
           background-color: transparent;
-          padding: 1rem;
           border-radius: 5px;
           border: 1px solid rgb(197, 194, 194);
           color: gray;
+          padding: 1rem;
         }
       }
       .name-info {
         display: flex;
-        justify-content: space-between ;
         flex: 1 1;
+        justify-content: space-between ;
       }
       .country-info {
         display: flex;
@@ -44,34 +47,18 @@
       .button-choice {
         display: flex;
         justify-content: space-between;
-          .ship {
-            background-color: $green;
-            border: 1px rgb(0, 160, 0) solid
+        margin-top: 6rem;
+        .button-cart {
+          background-color: transparent;
+          border: none;
+          color: $secondary-color;
+          font-family: $font-text;
+          text-decoration: underline;
+          &:hover {
+            font-style: italic;
           }
-          .cart {
-            font-family: $font-para;
-            border: none;
-            text-decoration: underline;
-          }
+        }
       }
     }
   }
 }
-
-
-//     li {
-//       display: flex;
-//       flex-direction: column;
-//       margin-bottom: 1rem;
-//       margin-top: 1rem;
-//     }
-//     button {
-//       background-color: $green;
-//       border: 1px solid rgb(124, 199, 124);
-//       cursor: pointer;
-//       &:hover {
-//         background-color: rgb(124, 199, 124);;
-//       }
-//     }
-//   }
-// }

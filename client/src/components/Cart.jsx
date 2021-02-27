@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import { Link } from 'react-router-dom';
 import './Cart.scss';
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import ClearIcon from '@material-ui/icons/Clear';
+import StoreNav from "./StoreNav";
 
 
 export default function Cart(props) {
@@ -30,23 +31,24 @@ export default function Cart(props) {
   }
 
   return (
+    <>
+    <StoreNav />
     <div id="cart">
-      <Link to="/store" className="back-shopping">Continuer à magasiner</Link>
       <div className="cart">
         <div className="cart-list">
           <ul className="cart-list-container">
             <li>
-              <h3>panier</h3>
-              <div>
-                Prix :
-              </div>
+              <h3 className="title">panier</h3>
             </li>
             {
               cartItems.length === 0 ?
-                <div>Le panier est vide</div>
+                <div className="text-simple">Le panier est vide</div>
                 :
                 cartItems.map(item =>
                   <li>
+                    <button className="button-delete" onClick={() => removeFromCartHandler(item.product)}>
+                      <ClearIcon />
+                    </button>
                     <div className="cart-image">
                       <img src={item.image} alt="product" />
                     </div>
@@ -56,16 +58,13 @@ export default function Cart(props) {
                           {item.name}
                         </Link>
                       </div>
-                      <div>
+                      <div className="cart-qty">
                         Quantité:
                       <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
                           {[...Array(item.countInStock).keys()].map(x =>
                             <option key={x + 1} value={x + 1}>{x + 1}</option>
                           )}
                       </select>
-                        <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)}>
-                          <DeleteOutlineIcon />
-                        </button>
                       </div>
                     </div>
                     <div className="cart-price">
@@ -77,17 +76,21 @@ export default function Cart(props) {
           </ul>
         </div>
         <div className="cart-action">
-          <h3>
-            Sous-total ( {cartItems.reduce((a, c) => a + c.qty, 0)} items)
-            :
-            $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
-          </h3>
-          <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
+          <div className="subtotal">
+            Sous-total : &nbsp;
+             {cartItems.reduce((a, c) => a + c.price * c.qty, 0)} $
+             <span>Shipping : </span>
+          </div>
+
+          <button onClick={checkoutHandler} className="button" disabled={cartItems.length === 0}>
             Passer la commande
           </button>
-
+          <div className="back-shopping">
+            <Link to="/store" className="back-shopping">Continuer à magasiner</Link>
+          </div>
         </div>
 
       </div>
   </div>
+  </>
   )}

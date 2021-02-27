@@ -5,17 +5,16 @@
 .checkout-steps {
   display: flex;
   justify-content: space-between;
-  width: 40rem;
-  margin: 3rem auto;
-  div {
-    border-top: 0.3rem #c0c0c0 solid;
-    color: rgb(182, 182, 182);
-    flex: 1 1;
-    padding-top: 1rem;
+  align-items: center;
+  width: 25rem;
+  margin: 15rem auto 3rem;
+  font-family: $font-text;
+  color: $secondary-color;
+  .arrow {
+    display: flex;
   }
   .active {
-    border-top: 0.3rem $peach solid;
-    color: $peach;
+    color: $primary-color;
   }
 }
 

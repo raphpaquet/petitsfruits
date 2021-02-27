@@ -2,45 +2,41 @@
 
 #contact {
   background-color: white;
-    margin: 2em 0em;
-    padding: 1em;
-    position: relative;
+  margin: 2em 0em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .title-button {
     float: right;
-
-  }
-  .contact-title {
-    font-family: $font-title;
-    color: $pink;
-    margin-top: 1em;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 1.5em;
-    
   }
   .contact-form {
     display: flex;
     flex-direction: column;
     margin: 2rem 4rem; 
+    width: 30rem;
+    justify-content: center;
     .form-input {
+      color: $secondary-color;
       background-color: transparent;
       height: 2em;
       outline: none;
-      color: $pink;
       font-size: 0.8em;
       font-family: $font-title;
-      border-bottom: 1px solid $pink;
+      border-bottom: 1px 0 0 0 solid $primary-color;
       border-top: none;
       border-right: none;
       border-left: none;
       border-radius: 0px;
       .msg {
         overflow: visible;
+        width:auto;
       }
     }
   }
 }
 
+/* SEND BUTTON */
 .box-1 {
   height: 33.33%;
   width: 100%; 
@@ -49,70 +45,24 @@
   flex-direction: column;
   align-items: center;
 }
-
-button {
+.btn {
   background-color: transparent;
+  color: $primary-color;
   text-decoration: none;
   outline: none;
-  border:none;
-  margin-top: 2em;
-}
-.btn {
-  line-height: 50px;
-  height: 50px;
+  border: 1px solid;
+  margin-top: 3em;
+  line-height: 40px;
   text-align: center;
-  width: 250px;
+  width: 150px;
   cursor: pointer;
+  padding: 1px;
+  &:hover {
+    border: 2px solid;
+    font-style: italic;
+  }
 }
 
-.btn-one {
-  color: $pink;
-  transition: all 0.3s;
-  position: relative;
-}
-.btn-one span {
-  transition: all 0.3s;
-}
-.btn-one::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0;
-  transition: all 0.3s;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  border-top-color: rgba(204, 29, 116, 0.5);
-  border-bottom-color: rgba(204, 29, 116, 0.5);
-  transform: scale(0.1, 1);
-}
-.btn-one:hover span {
-  letter-spacing: 2px;
-}
-.btn-one:hover::before {
-  opacity: 1; 
-  transform: scale(1, 1); 
-}
-.btn-one::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: all 0.3s;
-  background-color: rgba(255,255,255,0.1);
-}
-.btn-one:hover::after {
-  opacity: 0; 
-  transform: scale(0.1, 1);
-}
 
 @media (max-width: 480px) {
 }

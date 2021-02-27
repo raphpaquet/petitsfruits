@@ -34,24 +34,26 @@ export default function Product(props) {
         <img className="product-img" src={product.image}></img>
           <h1 className="product-name">{product.name}</h1>
           <div className="price">{(product.price)}$
+          {product.countInStock > 1 ? (
             <div className="qte">Quantité:
               <select className="qte-select" value={qty} onChange={(e) => {setQty(e.target.value)}}>
                 {[...Array(product.countInStock).keys()].map(x => 
                   <option value={x + 1} key={x + 1}>{x + 1}</option>)}
               </select>
             </div>
+          ) : "" }
+        <div className="description">
+          <p className="desc">{product.description}</p>
+        </div>
           </div>
          <div className='action'>
           {product.countInStock > 0 ?
             (<div className="add-cart">
-              <button className='add' onClick={handleAddToCart}>Ajouter au panier</button>
+              <button className='button add' onClick={handleAddToCart}>Ajouter au panier</button>
             </div> ) : (
             <div className="out-of-stock">Out Of Stock</div>
           )}
           </div>
-        <div className="description">
-          <p className="desc">{product.description}</p>
-        </div>
         </div>
       )}
     </section>

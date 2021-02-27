@@ -10,8 +10,6 @@ import './Navigation.scss';
 
 
 
-
-
 export default function Store(props) {
 
 
@@ -19,9 +17,7 @@ export default function Store(props) {
    const { products, loading, error } = productList;
    const category = props.match.params.id ? props.match.params.id : '';
    
-   const handleAddToCart = () => {
-    props.history.push("/cart/" + props.match.params.id + "?qty=1" )
-  }
+
 
    // Axios call to get the products
    const dispatch = useDispatch();
@@ -74,44 +70,69 @@ export default function Store(props) {
                   <li>
                     <Link to="/category/tshirts" className="category-btn" onClick={closeMenu}>T-Shirts</Link>
                   </li>
+                  <li>
+                    <Link to="/store" className="category-btn" onClick={closeMenu}>Catégories</Link>
+                  </li>
                 </ul>
             </aside>
           </section>
-            {category && <h2 className="category-title">{category}</h2>}
-                {loading ? (
-              <div>Loading...</div>
-            ) : error ? (
-              <div>{error}</div>
-            ) : (
-              <ul className="products">
-                {products.map((product) => (
-                   <li key={product.id}>
-                   <div className="product">
-                     <div className='product-img'>
-                       <Link to={'/product/' + product._id}>
-                         <img
-                           className="product-image"
-                           src={product.image}
-                           alt="product-image"
-                         />
-                       </Link>
-                     </div>
-                     <div className='product-footer'>
-                       <div className="product-name">
-                         <Link to={'/product/' + product._id}>{product.name}</Link>
+          {!category ? (
+            <section id="homestore">
+              <Link to="/category/peintures" style={{width:"50%"}}><div className="category-box">
+                <img className="category-img" src="./images/alien_bagel.jpg" />
+                <div className="category-name">Peintures</div>
+              </div></Link>
+              <Link to="/category/illustrations" style={{width:"50%"}} ><div className="category-box">
+                <img className="category-img" src="./images/alien_bagel.jpg" />
+                <div className="category-name">Illustrations</div>
+              </div></Link>
+              <Link to="/category/stickers" style={{width:"50%"}}><div className="category-box">
+                <img className="category-img" src="./images/alien_bagel.jpg" />
+                <div className="category-name">Stickers</div>
+              </div></Link>
+              <Link to="/category/tshirts" style={{width:"50%"}}><div className="category-box">
+                <img className="category-img" src="./images/alien_bagel.jpg" />
+                <div className="category-name">T-Shirts</div>
+              </div></Link>
+            </section>
+          ) : (
+            <section id="store-products">
+              {category && <h2 className="title">{category}</h2>}
+                  {loading ? (
+                <div>Loading...</div>
+              ) : error ? (
+                <div>{error}</div>
+              ) : (
+                <ul className="products">
+                  {products.map((product) => (
+                     <li key={product.id}>
+                     <div className="product">
+                       <div className='product-img'>
+                         <Link to={'/product/' + product._id}>
+                           <img
+                             className="product-image"
+                             src={product.image}
+                             alt="product-image"
+                           />
+                         </Link>
                        </div>
-                          <span className="product-price"> {(product.price).toFixed(2)}$ </span>
-                       {product.countInStock > 0 ?
-                          (<div className="add-cart">
-                          </div> ) : (
-                          <div className="out-of-stock">Out Of Stock</div>
-                        )}
-                       {/* <button className="ajout" onClick={handleAddToCart}><span>ajouter</span></button> */}
+                       <div className='product-footer'>
+                         <div className="product-name">
+                           <Link to={'/product/' + product._id}>{product.name}</Link>
+                         </div>
+                            <span className="product-price"> {(product.price).toFixed(2)}$ </span>
+                         {product.countInStock > 0 ?
+                            (<div className="add-cart">
+                            </div> ) : (
+                            <div className="out-of-stock">Out Of Stock</div>
+                          )}
+                       </div>
                      </div>
-                   </div>
-                 </li>
-                ))}
-              </ul>
+                   </li>
+                  ))}
+                </ul>
+            )}
+            </section>
             )}
           </section>
         )

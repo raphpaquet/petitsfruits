@@ -83,7 +83,7 @@ export default function Contact() {
 
   return (
     <section id="contact">
-        <h1 className="contact-title">Contactez-Moi</h1>
+        <h1 className="title">Contactez-Moi</h1>
       <form className="contact-form" onSubmit={handleSubmit}>
         <input id="name" className="form-input" type="text" name="name" placeholder='Votre Nom *' value={state.name} onChange={handleChange} required/>
         <br></br>
@@ -94,7 +94,7 @@ export default function Contact() {
         <TextareaAutosize aria-label="empty textarea" id="message" className="form-input msg" name="message" placeholder='Message *' value={state.message} onChange={handleChange} required/>
         <br></br>
         <div class="box-1">
-          <button class="btn btn-one" type="submit" variant="contained" disabled={loading} >
+          <button class="btn" type="submit" variant="contained" disabled={loading} >
             <span>ENVOYER</span>
          </button>
          <div className="progress">

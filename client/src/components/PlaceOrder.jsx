@@ -5,6 +5,7 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import { createOrder } from '../actions/orderActions';
 import './PlaceOrder.scss';
 import './Cart.scss';
+import StoreNav from './StoreNav';
 
 
 export default function PlaceOrder(props) {
@@ -21,8 +22,8 @@ export default function PlaceOrder(props) {
   // }
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemsPrice > 100 ? 0 : 10;
-  const taxPrice = 0.15 * itemsPrice;
-  const totalPrice = itemsPrice + shippingPrice + taxPrice;
+  // const taxPrice = 0.15 * itemsPrice;
+  const totalPrice = itemsPrice + shippingPrice;
 
   const dispatch = useDispatch();
 
@@ -40,21 +41,22 @@ export default function PlaceOrder(props) {
 
   // }, [success]);
 
-  return <div>
+  return (
+  <div>
+    <StoreNav />
     <CheckoutSteps step1 step2 step3></CheckoutSteps>
     <div className="placeorder">
       <div className="placeorder-info">
         <div>
-          <h3>
-            Livraison
-          </h3>
+          <h3 className="title">Livraison</h3>
           <div>
-            {cart.shipping.address}, {cart.shipping.city},
-          {cart.shipping.postalCode}, {cart.shipping.country},
+            {cart.shipping.address}, {cart.shipping.appartment}, {cart.shipping.city},
+          {cart.shipping.postalCode}, {cart.shipping.province},
+          {cart.shipping.country}
           </div>
         </div>
         <div>
-          <h3>Paiement</h3>
+          <h3 className="title">Paiement</h3>
           <div>
             Méthode de paiement: {cart.payment.paymentMethod}
           </div>
@@ -62,30 +64,22 @@ export default function PlaceOrder(props) {
         <div>
           <ul className="cart-list-container">
             <li>
-              <h3>
-                Aperçu de la commande
-          </h3>
-              <div>
-                Prix
-          </div>
+              <h3 className="title">Aperçu de la commande</h3>
             </li>
             {
               cartItems.length === 0 ?
-                <div>
-                  Le panier est vide
-          </div>
+                <div className="simple-text">Le panier est vide</div>
                 :
                 cartItems.map(item =>
                   <li>
                     <div className="cart-image">
                       <img src={item.image} alt="product" />
                     </div>
-                    <div className="cart-name">
+                    <div className="cart-name-qty">
                       <div>
-                        <Link to={"/product/" + item.product}>
+                        <Link className="cart-name" to={"/product/" + item.product}>
                           {item.name}
                         </Link>
-
                       </div>
                       <div>
                         Qté: {item.qty}
@@ -100,7 +94,6 @@ export default function PlaceOrder(props) {
           </ul>
         </div>
 
-      
       </div>
       <div className="placeorder-action">
         <ul>
@@ -119,21 +112,13 @@ export default function PlaceOrder(props) {
             <div>{(shippingPrice).toFixed(2)}$</div>
           </li>
           <li>
-            <div>Taxes</div>
-            <div>{(taxPrice).toFixed(2)}$</div>
-          </li>
-          <li>
             <div>Total de la commande</div>
             <div>{(totalPrice).toFixed(2)}$</div>
           </li>
         </ul>
-
-
-
       </div>
-
     </div>
   </div>
-
+  )
 }
 

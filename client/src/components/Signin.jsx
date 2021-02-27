@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signin } from '../actions/userActions';
 import './Signin.scss'
+import StoreNav from './StoreNav';
 
 function Signin(props) {
 
@@ -26,33 +27,38 @@ function Signin(props) {
     dispatch(signin(email, password));
 
   }
-  return <div className="form">
-    <form onSubmit={submitHandler} >
-      <ul className="form-container">
-        <li>
-          <h2>Sign-In</h2>
-        </li>
-        <li>
-          {loading && <div>Loading...</div>}
-          {error && <div>{error}</div>}
-        </li>
-        <li>
-          <label htmlFor="email">
-            Email
-          </label>
-          <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
-          </input>
-        </li>
-        <li>
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>
-          </input>
-        </li>
-        <li>
-          <button type="submit" className="button primary">Signin</button>
-        </li>
-      </ul>
-    </form>
+  return (
+  <div>
+    <StoreNav />
+      <div className="form">
+        <form onSubmit={submitHandler} >
+          <ul className="form-container">
+            <li>
+              <h2 className="title">Sign-In</h2>
+            </li>
+            <li>
+              {loading && <div>Loading...</div>}
+              {error && <div>{error}</div>}
+            </li>
+            <li>
+              <label htmlFor="email">
+                Email
+              </label>
+              <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
+              </input>
+            </li>
+            <li>
+              <label htmlFor="password">Password</label>
+              <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>
+              </input>
+            </li>
+            <li>
+              <button type="submit" className="button">Signin</button>
+            </li>
+          </ul>
+        </form>
+      </div>
   </div>
+  )
 }
 export default Signin;

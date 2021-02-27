@@ -7,7 +7,7 @@
   font-size: 2rem;
   h2 {
     padding-top: 1em;
-    color: $peach;
+    color: $primary-color;
     font-family: $font-title;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -15,8 +15,8 @@
     margin-bottom: 0em;
   }
   .about-text {
-    color: $peach;
-    font-family: $font-para;
+    color: $primary-color;
+    font-family: $font-text;
     margin: 2em 2em;
     text-align: justify;
     font-size: 2rem;

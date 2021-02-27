@@ -1,6 +1,7 @@
 @import '../assets/variables';
 
 #solo-product {
+  margin-top: 15rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,51 +16,43 @@
       margin-top: 1em;
     }
     .product-name {
-      font-family: $font-write;
-      color: $pink;
+      font-family: $font-title;
+      color: $primary-color;
       font-size: 1.6em;
-      font-weight: bold;
       display: flex;
       letter-spacing: 0.2em;
     }
     .price {
+      color: $secondary-color;
       display: flex;
-      font-family: $font-para;
+      font-family: $font-text;
       font-size: 1.3em;
       letter-spacing: 0.2em;
       flex-direction: column;
       align-items: flex-start;
       .qte {
+        margin-top: 1rem;
         font-size: 0.5em;
         .qte-select {
+          color: $secondary-color;
           background-color: transparent;
+          border: none;
         }
       }
     }
   }
   .description {
-    font-size: 1.3em;
-    font-family: $font-para;
+    color: $secondary-color;
+    font-size: 1.5rem;
+    font-family: $font-text;
     margin: 1em 0em;
-    text-transform: uppercase;
   }
-  .action {
-    .add-cart {
-      background-color: $peach;
-      font-size: 2em;
-      margin-top: 1em;
-      min-width: 100%;
-      .add {
-        color: rgb(0, 0, 0);
-        align-items: center;
-        margin: 0.5em;
-        font-size: 0.5em;
-        font-family: $font-para;
-        text-transform: uppercase;
-      }
-      &:hover {
-        background-color: $pink
-      }
-    }
+
+  .add {
+    align-items: center;
+    background-color: $primary-color;
+    margin: 0.5em;
+    font-family: $font-text;
+    text-transform: uppercase;
   }
 }

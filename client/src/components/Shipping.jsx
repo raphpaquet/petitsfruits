@@ -5,6 +5,7 @@ import { saveShipping } from '../actions/cartActions';
 import CheckoutSteps from './CheckoutSteps';
 import './Shipping.scss';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import StoreNav from './StoreNav';
 
 
 export default function Shipping(props) {
@@ -32,37 +33,31 @@ export default function Shipping(props) {
 
   return (
   <div id="shipping">
+    <StoreNav />
     <CheckoutSteps step1 ></CheckoutSteps>
     <div className="shipping-form">
       <form onSubmit={submitHandler} >
         <ul className="form-ship">
           <div className="contact-info">
-          <li>
-              <h2>Contact</h2>
-            </li>
             <li>
               <input 
                 type="text" 
                 autoCapitalize="off" 
                 name="email-phone" 
                 id="email-phone" 
-                placeholder="Courriel ou numéro de téléphone" 
+                placeholder="Courriel ou Numéro De Téléphone" 
                 onChange={(e) => setContact(e.target.value)}>
               </input>
             </li>
           </div>
           <div className="shipping-info">
-            <li>
-              <h2>Information de livraison</h2>
-            </li>
-
             <div className="name-info">
               <li>
                 <input 
                   type="text" 
                   name="first-name" 
                   id="first-name" 
-                  placeholder="prénom" 
+                  placeholder="Prénom" 
                   onChange={(e) => setFirstName(e.target.value)}>
                 </input>
               </li>
@@ -71,7 +66,7 @@ export default function Shipping(props) {
                   type="text" 
                   name="last-name" 
                   id="last-name" 
-                  placeholder="nom de famille" 
+                  placeholder="Nom De Famille" 
                   onChange={(e) => setLastName(e.target.value)}>
                 </input>
               </li>
@@ -81,7 +76,7 @@ export default function Shipping(props) {
                 type="text" 
                 name="address" 
                 id="address" 
-                placeholder="addresse" 
+                placeholder="Adresse" 
                 onChange={(e) => setAddress(e.target.value)}>
               </input>
             </li>
@@ -90,7 +85,7 @@ export default function Shipping(props) {
                 type="text" 
                 name="appartment" 
                 id="appartment" 
-                placeholder="appartement" 
+                placeholder="Appartement" 
                 onChange={(e) => setAppartment(e.target.value)}>
               </input>
             </li>
@@ -99,14 +94,14 @@ export default function Shipping(props) {
                 type="text" 
                 name="city" 
                 id="city" 
-                placeholder="ville" 
+                placeholder="Ville" 
                 onChange={(e) => setCity(e.target.value)}>
               </input>
             </li>
             <div className="country-info">
               <li>
                 <select id="country" 
-                  placeholder="pays"
+                  placeholder="Pays"
                   onChange={(e) => setCountry(e.target.value)}>
                     <option value="" disabled selected>pays</option>
                     <option>Canada</option>
@@ -114,7 +109,7 @@ export default function Shipping(props) {
               </li>
               <li>
                 <select id="province" 
-                  placeholder="province"
+                  placeholder="Province"
                   onChange={(e) => setProvince(e.target.value)}>
                     <option value="" disabled selected>province</option>
                     <option>AB</option>
@@ -133,13 +128,13 @@ export default function Shipping(props) {
                 </select>
               </li>
               <li>
-                <input placeholder="code postal" type="text" name="postalCode" id="postalCode" onChange={(e) => setPostalCode(e.target.value)}>
+                <input placeholder="Code Postal" type="text" name="postalCode" id="postalCode" onChange={(e) => setPostalCode(e.target.value)}>
                 </input>
               </li>
             </div>
             <div className="button-choice">
-                <Link to="/cart"><button className="button cart" ><ArrowBackIosIcon />retour panier</button></Link>
-                <button type="submit" className="button ship">Continue</button>
+                <Link to="/cart"><button className="button-cart" ><ArrowBackIosIcon />retour panier</button></Link>
+                <button type="submit" className="button min-width">Continue</button>
             </div>
           </div>
         </ul>

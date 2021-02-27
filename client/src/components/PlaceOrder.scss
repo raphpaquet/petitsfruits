@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   padding: 1rem;
   justify-content: space-between;
-  font-family: $font-para;
+  font-family: $font-text;
   .placeorder-info {
     flex: 3 1 60rem;
     div {
@@ -25,18 +25,13 @@
   padding: 0;
   list-style-type: none;
   padding: 1rem;
-  h3 {
-    color: $pink;
-    font-family: $font-title;
-    letter-spacing: 0.2em;
-  }
   li {
     display: flex;
     justify-content: space-between;
-    font-family: $font-para;
+    font-family: $font-text;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
-    border-bottom: 0.1rem #c0c0c0 solid;
+    align-items: center;
     img {
       max-width: 10rem;
       max-height: 10rem;
@@ -45,6 +40,24 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+    }
+  }
+  .cart-name-qty {
+    display: flex;
+    flex: 8 1;
+    font-family: $font-text;
+    flex-direction: column;
+    justify-content: space-around;
+    .cart-qty {
+      color: $secondary-color;
+    }
+    .cart-name {
+      color: $primary-color;
+      cursor: pointer;
+      font-family: $font-text;
+      font-size: 2rem;
+      outline: none;
+      text-decoration: none;
     }
   }
 }
@@ -69,6 +82,6 @@
     }
   }
   .button {
-    background-color: $green;
+    background-color: $primary-color;
   }
 }

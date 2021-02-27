@@ -30,14 +30,20 @@ export default function Navigation() {
             x
          </button>
            <ul className="categories">
+             <li>
+                <img className="logo-blanc" src="/images/logo_blanc.png"></img>
+             </li>
             <li>
-              <HashLink to="#illustrations" className="category-btn" onClick={closeMenu}>Illustrations</HashLink>
+              <Link to="/store" className="category-btn" onClick={closeMenu}>Boutique</Link>
             </li>
             <li>
-              <HashLink to="#about" className="category-btn" onClick={closeMenu}>Petitsfruits</HashLink>
+              <Link to="#illustrations" className="category-btn" onClick={closeMenu}>Illustrations</Link>
             </li>
             <li>
-              <Link to="/store" className="category-btn" onClick={closeMenu}>Magasin</Link>
+              <Link to="/portfolioacademique" className="category-btn" onClick={closeMenu}>Portfolio Académique</Link>
+            </li>
+            <li>
+              <Link to="/tattoo" className="category-btn" onClick={closeMenu}>Tattoo</Link>
             </li>
             <li>
               <HashLink to="#contact" className="category-btn" onClick={closeMenu}>Contact</HashLink>

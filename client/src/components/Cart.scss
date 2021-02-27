@@ -2,99 +2,107 @@
 
 /* Cart */
 #cart {
+  margin-top: 15rem;
   display: flex;
   flex-direction: column;
   .back-shopping {
-    align-self: flex-start;
-    margin: 2rem;
+    color: $primary-color;
     font-size: 1.6rem;
-    color: $pink;
+    margin-top: 2rem;
   }
   .cart {
     height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
     margin: 1rem 4em;
-    align-items: flex-start;
     .cart-list {
       flex: 3 1 60rem;
     }
     .cart-action {
-      flex: 1 1 20rem;
-      background-color: #ffffff;
-      font-family: $font-para;
-      border-radius: 0.5rem;
-      font-size: 2rem;
-      padding: 1rem;
+      color: $secondary-color;
+      float: right;
+      font-family: $font-text;
+      font-size: 1.6rem;
       margin: 3rem;
-      button {
-        background-color: #c3c3c3;
-        color: white;
-        font-family: $font-karla;
-        letter-spacing: 0.2em;
-        width: 30rem;
-        padding: 2rem;
+      padding: 1rem;
+      .subtotal {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem;
+        text-transform: uppercase;
       }
     }
     .cart-list-container {
-      padding: 0;
       list-style-type: none;
+      padding: 0;
       padding: 1rem;
       h3 {
-        color: $pink;
+        color: $primary-color;
         font-family: $font-title;
         letter-spacing: 0.2em;
       }
       li {
         display: flex;
+        font-family: $font-text;
         justify-content: space-between;
-        font-family: $font-para;
+        margin-top: 5rem;
         padding-bottom: 1rem;
-        margin-bottom: 1rem;
-        border-bottom: 0.1rem #c0c0c0 solid;
         img {
           max-width: 10rem;
           max-height: 10rem;
         }
         .first-child {
+          align-items: flex-end;
           display: flex;
           justify-content: space-between;
-          align-items: flex-end;
         }
       }
     }
     .cart-image {
       flex: 1 1;
     }
+    .button-delete {
+      align-self: center;
+      border: none;
+      background-color: transparent;
+      border: none;
+      color: $secondary-color;
+      font-family: $font-text;
+      height: 3rem;
+      margin-right: 1rem;
+      padding: 0.5rem 1rem;
+    }
     .cart-name-qty {
+      display: flex;
       flex: 8 1;
-      font-family: $font-para;
-      select {
-        margin: 0rem 2rem;
-        background-color: transparent;
+      font-family: $font-text;
+      flex-direction: column;
+      justify-content: space-around;
+      .cart-qty {
+        color: $secondary-color;
       }
-      .button {
-        font-family: $font-para;
-        padding: 0.5rem 1rem;
+      select {
+        background-color: transparent;
         border: none;
-        transform: scale(1.5);
+        color: $secondary-color;
+        margin: 0rem 2rem;
       }
       .cart-name {
-        font-family: $font-write;
-        color: $pink;
-        outline: none;
-        font-size: 2rem;
+        color: $primary-color;
         cursor: pointer;
+        font-family: $font-text;
+        font-size: 2rem;
+        outline: none;
+        text-decoration: none;
       }
     }
     .cart-price {
+      align-self: center;
+      color: $secondary-color;
       flex: 1 1;
       font-size: 2rem;
-      text-align: right;
-      font-family: $font-para;
+      font-family: $font-text;
       font-weight: 100;
-      align-self: center;
       margin-right: 1rem;
+      text-align: right;
     }
   }
 }

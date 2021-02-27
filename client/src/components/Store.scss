@@ -3,7 +3,7 @@
 /* Store Navigation */
 #storeNav {
   width: 100%;
-  border-bottom: 1px solid $peach;
+  border-bottom: 1px solid $primary-color;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -11,32 +11,66 @@
 .burger-btn {
   font-size: 2.5rem;
   padding: 0.5rem;
-  background-color: none;
+  background-color: none !important;
   border:none;
   cursor: pointer;
   margin-top: 0;
-  color: $peach
+  color: $primary-color;
+  width: 5rem;
 }
 .logo {
   height: 5rem;
   margin: 3em;
 }
-
+.logo-blanc {
+  margin: 6rem 0 1rem 0;
+}
 .cart-icon {
-  color: $peach;
+  color: $primary-color;
   transform: scale(1.5);
   cursor: pointer;
 }
 .back {
-  color: $peach;
+  color: $primary-color;
   font-size: 1.6rem;
   margin-top: 0;
+}
+
+/* STORE HOMEPAGE */
+#homestore {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20rem 15rem;
+  .category-box {
+    border: solid 1px $secondary-color;
+    flex: 1 0 calc(30% - 10px);
+    padding: 3rem;
+    color: $primary-color;
+    a {
+      width: 50%;
+    }
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+    }
+    .category-img {
+      width: 15rem;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+    .category-name {
+      font-family: $font-title;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+    }
+  }
 }
 
 
 /* Actual Store */
 #store {
-  font-family: $font-karla;
+  font-family: $font-text;
   font-size: 1.2em;
   height: 100%;
   min-height: 100vh;
@@ -49,7 +83,7 @@
   }
   h1 {
     text-transform: uppercase;
-    color: $peach;
+    color: $primary-color;
     letter-spacing: 0.2em;
     padding: 3em 0em;
     margin: 0;
@@ -72,32 +106,28 @@
     .product-image {
       max-width: auto;
       max-height: 20rem;
-      // box-shadow: 4px 5px #bec4d2;
-      // width: auto;
-      // height: 250px;
-      // max-width: 100%;
     }
     .product-name {
-      font-family: $font-write;
+      font-family: $font-title;
       font-size: 1.2em;
       margin: 2em 0em 0.3em;
       a {
         outline: none;
-        color: $pink;
+        color: $primary-color;
         text-decoration: none;
       }
     }
     .product-brand {
-      font-family: $font-para;
+      font-family: $font-text;
       font-size: 1em;
     }
     .product-price {
-      font-family: $font-karla;
+      font-family: $font-text;
       font-size: 0.8em;
       color: #b7b6b6;
     }
     .ajout {
-      border: 1px solid $peach;
+      border: 1px solid $primary-color;
       border-radius: 10%;
       color:rgb(100, 96, 96);
       padding: 4px;
@@ -105,7 +135,7 @@
       margin-top: 1em;
       cursor: pointer;
       &:hover {
-        background-color: $peach;
+        background-color: $primary-color;
       }
     }
   }
