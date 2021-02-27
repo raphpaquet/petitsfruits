@@ -57,7 +57,7 @@ export default function Store(props) {
               <Link to="/cart"><ShoppingCartIcon className="cart-icon"/></Link>
             </div>
             <aside className="sidebar">
-              <h3>catégories</h3>
+                  <img className="logo-blanc" src="/images/logo_blanc.png"></img>
               <button className="sidebar-close-button" onClick={closeMenu}>
                   x
               </button>
@@ -100,10 +100,9 @@ export default function Store(props) {
                        <div className="product-name">
                          <Link to={'/product/' + product._id}>{product.name}</Link>
                        </div>
-                       <span className="product-price">{(product.price).toFixed(2)}$ |</span>
+                          <span className="product-price"> {(product.price).toFixed(2)}$ </span>
                        {product.countInStock > 0 ?
                           (<div className="add-cart">
-                            <button className='ajout' onClick={handleAddToCart}>ajouter</button>
                           </div> ) : (
                           <div className="out-of-stock">Out Of Stock</div>
                         )}

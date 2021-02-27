@@ -4,20 +4,26 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: $purple;
+  background-color: white;
+  position: fixed;
   top: 0;
+  width: 100%;
   .petitsfruits {
     display: flex;
     align-items: center;
     .logo {
-      height: 3rem;
+      height: 5rem;
       margin: 2em;
     }
     span {
       color: $peach;
       letter-spacing: 0.3em;
       font-size: 3rem;
+      text-shadow: 1px 1px orange;
     }
+  }
+  .cart-icon {
+    text-decoration: none;
   }
    .sidebar {
     top: 0;
@@ -26,16 +32,22 @@
     transform: translateY(-100%);
     width: 100%;
     height: 100%;
-    background-color: rgb(228, 255, 217);
-    opacity: 0.9;
+    background-color: $peach;
+    .logo-blanc {
+      margin: 6rem 1em 0em 1em;
+      height: 4rem;
+      margin: 1em;
+    }
   }
   .sidebar.open {
     transform: translateY(0);
+
   }
   
   .sidebar-close-button {
     border-radius: 50%;
-    border: 0.1rem #000000 solid;
+    color: white;
+    border: 0.1rem white solid;
     width: 3rem;
     height: 3rem;
     padding: 0.5rem;
@@ -64,20 +76,21 @@
     line-height: 5;
     padding: 0;
     .category-btn {
-      color: $pink;
+      color: white;
+      text-shadow: 2px 2px wheat;
       text-decoration: none;
-      font-family: $font-title;
-      letter-spacing: 0.2em;
+      font-family: $font-karla;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      font-size: 1.6rem;
+      font-size: 2rem;
       cursor: pointer;
     }
     .category-btn:hover {
-      border: 1px solid $pink;
+      border: 1px solid white;
       padding: 10px
     }
     .category-btn:focus {
-      border: 1px solid $pink;
+      border: 1px solid white;
       padding: 10px
     }
   }

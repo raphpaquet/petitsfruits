@@ -28,9 +28,12 @@
       padding: 1rem;
       margin: 3rem;
       button {
-        background-color: $green;
-        border: 1px solid green;
-        font-family: $font-para;
+        background-color: #c3c3c3;
+        color: white;
+        font-family: $font-karla;
+        letter-spacing: 0.2em;
+        width: 30rem;
+        padding: 2rem;
       }
     }
     .cart-list-container {
