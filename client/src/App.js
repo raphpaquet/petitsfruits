@@ -13,6 +13,8 @@ import Payment from './components/Payment';
 import Signin from './components/Signin';
 import { useSelector } from 'react-redux';
 import HomePage from './components/HomePage';
+import Portfolio from './components/Portfolio';
+import Tattoo from './components/Tattoo';
 
 
 const history = createBrowserHistory();
@@ -36,8 +38,9 @@ function App() {
           <Route path="/cart/:id?" component={Cart} />
           <Route path="/category/:id" component={Store} />
           <Route path='/signin' component={Signin} />
-          <Route path='/' exact={true} component={HomePage}>
-          </Route>
+          <Route path='/portfolioacademique' component={Portfolio} />
+          <Route path='/tattoo' component={Tattoo} />
+          <Route path='/' exact={true} component={HomePage} />
         <Footer />
       </div>
     </BrowserRouter>
