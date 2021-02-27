@@ -6,7 +6,7 @@ import { detailsProduct, listProducts } from '../actions/productActions'
 import { useEffect, useState } from 'react';
 import './Store.scss';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import './Navigation.scss';
+import '../components/Navigation.scss';
 
 
 

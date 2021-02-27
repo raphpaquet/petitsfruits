@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import './Store.scss';
+import '../screens/Store.scss';
 import {useHistory} from 'react-router-dom';
-import './Store.scss';
+import '../screens/Store.scss';
 import './Navigation.scss';
 
 
