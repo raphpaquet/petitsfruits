@@ -2,32 +2,73 @@
 @import './assets/variables';
 
 html {
-  font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
   box-sizing: border-box;
+  font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
   overflow-x: hidden;
   width: 100% !important;
 }
 body {
+  background-color: white;
   font: 1.6rem Helvetica;
   height: 100%;
   margin: 0;
-  background-color: white;
   width: 100% !important;
 }
 button {
   font-size: 1.6rem;
 }
+a {
+  text-decoration: none;
+}
+.button {
+  background-color: #c3c3c3;
+  border:none;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  font-family: $font-text;
+  letter-spacing: 0.2em;
+  outline: none;
+  padding: 1rem 2rem;
+  &:hover {
+    border: 1px solid $primary-color;
+    font-style: italic;
+  }
+}
+.back {
+  color: $primary-color;
+  background-color: transparent;
+  border:none;
+  font-family: $font-text;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
 .full-width {
   width: 100%;
+}
+.half-with {
+  width: 50%;
+}
+.min-width {
+  width : 30%;
+}
+.text-simple {
+  color: $primary-color;
+  font-size: 1rem;
+  font-family: $font-text;
+}
+.title {
+  color: #fdcc9a;
+  font-size: 2rem;
+  letter-spacing: 0.2em;
+  text-shadow: 1px 1px orange;
+  text-transform: uppercase;
 }
 #root {
   height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 // @media (max-width: 900px) {
 //   html { font-size: 15px; }
