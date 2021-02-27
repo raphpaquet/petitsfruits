@@ -1,9 +1,8 @@
-import About from "./About";
-import Contact from "./Contact";
-import Illustrations from "./Illustrations";
-import Navigation from "./Navigation";
+
+import Contact from "../components/Contact";
+import Navigation from "../components/Navigation";
 import './HomePage.scss'
-import Newsletter from "./Newsletter";
+import Newsletter from "../components/Newsletter";
 
 export default function HomePage() {
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signin } from '../actions/userActions';
 import './Signin.scss'
-import StoreNav from './StoreNav';
+import StoreNav from '../components/StoreNav';
 
 function Signin(props) {
 

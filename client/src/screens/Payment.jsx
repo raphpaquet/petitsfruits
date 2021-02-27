@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { savePayment } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
-import StoreNav from './StoreNav';
+import StoreNav from '../components/StoreNav';
 
 export default function Payment(props) {
   const [paymentMethod, setPaymentMethod] = useState('');

@@ -7,7 +7,7 @@ import {
   deleteProduct
 } from '../actions/productActions';
 import './Products.scss'
-import StoreNav from './StoreNav'
+import StoreNav from '../components/StoreNav'
 
 export default function Products(props) {
 

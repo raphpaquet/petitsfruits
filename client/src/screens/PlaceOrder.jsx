@@ -5,7 +5,7 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import { createOrder } from '../actions/orderActions';
 import './PlaceOrder.scss';
 import './Cart.scss';
-import StoreNav from './StoreNav';
+import StoreNav from '../components/StoreNav';
 
 
 export default function PlaceOrder(props) {

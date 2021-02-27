@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import './Product.scss';
-import StoreNav from './StoreNav';
+import StoreNav from '../components/StoreNav';
 import { detailsProduct } from '../actions/productActions';
 
 export default function Product(props) {

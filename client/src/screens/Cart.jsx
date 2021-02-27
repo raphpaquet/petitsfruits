@@ -4,7 +4,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions';
 import { Link } from 'react-router-dom';
 import './Cart.scss';
 import ClearIcon from '@material-ui/icons/Clear';
-import StoreNav from "./StoreNav";
+import StoreNav from "../components/StoreNav";
 
 
 export default function Cart(props) {

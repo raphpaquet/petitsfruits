@@ -1,5 +1,5 @@
-import Contact from "./Contact";
-import Navigation from "./Navigation";
+import Contact from "../components/Contact";
+import Navigation from "../components/Navigation";
 import './Portfolio.scss';
 
 export default function Portfolio() {

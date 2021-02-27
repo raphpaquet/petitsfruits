@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { saveShipping } from '../actions/cartActions';
-import CheckoutSteps from './CheckoutSteps';
+import CheckoutSteps from '../components/CheckoutSteps';
 import './Shipping.scss';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import StoreNav from './StoreNav';
+import StoreNav from '../components/StoreNav';
 
 
 export default function Shipping(props) {
