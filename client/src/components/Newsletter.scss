@@ -1,0 +1,51 @@
+@import '../assets/variables';
+
+#newsletter {
+  display: flex;
+  justify-content: center;
+  .modal-news {
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 4rem;
+    align-items: center;
+    width: 40rem;
+    background-color: $primary-color;
+    color: white;
+    font-family: $font-title;
+    font-size: 3rem;
+    text-shadow: 3px 3px orange;
+    box-shadow: 2px 2px orange;
+    top: 30%;
+    left: 30%;
+    position: fixed;
+
+    .logo-blanc {
+      width: 9rem;
+      height: 6rem;
+    }
+    input {
+      background-color: white;
+      border: 1px solid white;
+      border-radius: 15em;
+      color: $primary-color;
+      border-radius: 0;
+      text-align: center;
+      margin: 2rem;
+    }
+    .btn-news {
+      background-color: transparent;
+      color: white;
+      text-transform: uppercase;
+      font-family: $font-text;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      &:hover {
+        border: white 1px solid;
+      }
+    }
+  }
+
+}
