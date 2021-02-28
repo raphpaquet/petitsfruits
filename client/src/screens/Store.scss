@@ -11,7 +11,7 @@
 .burger-btn {
   font-size: 2.5rem;
   padding: 0.5rem;
-  background-color: none !important;
+  background-color: transparent;
   border:none;
   cursor: pointer;
   margin-top: 0;
@@ -41,7 +41,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20rem 15rem;
+  margin: 20rem 10rem;
   .category-box {
     border: solid 1px $secondary-color;
     flex: 1 0 calc(30% - 10px);
