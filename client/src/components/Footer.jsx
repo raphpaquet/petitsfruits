@@ -13,7 +13,7 @@ export default function Footer() {
   <footer id="footer">
     <div>
       <a href="https://www.facebook.com/petitsfruitsillustration/" target="_blank"><FacebookIcon className="social" /></a>
-      <InstagramIcon className="social"/>
+      <a href="https://www.instagram.com/petitsfruits_/" target="_blank"><InstagramIcon className="social"/></a>
     </div>
     <div className="admin">
     {userInfo ? (

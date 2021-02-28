@@ -2,12 +2,12 @@
 
 #footer {
   bottom: 0;
-  margin-bottom: 20px;
   height: 10rem;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-top: 4rem;
   .rights {
     align-items: center;
     margin-bottom: 10px;
@@ -15,7 +15,7 @@
   }
   .social {
     transform: scale(2);
-    margin: 0rem 1rem;
+    margin: 0rem 1rem 0rem 1rem;
     outline: none;
     color: $primary-color;
     text-decoration: none;
