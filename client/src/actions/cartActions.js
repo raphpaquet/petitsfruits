@@ -11,7 +11,8 @@ const addToCart = (productId, qty) => async (dispatch, getState) => {
   try {
     const { data } = await axios.get('/api/products/' + productId);
     dispatch({ 
-      type: CART_ADD_ITEM, payload: {
+      type: CART_ADD_ITEM, 
+      payload: {
         product: data._id,
         name: data.name,
         price: data.price,
@@ -30,18 +31,27 @@ const addToCart = (productId, qty) => async (dispatch, getState) => {
 
 
 const removeFromCart = (productId) => (dispatch, getState) => {
-  dispatch({ type: CART_REMOVE_ITEM, payload: productId })
-
+  dispatch({ 
+    type: CART_REMOVE_ITEM, 
+    payload: productId 
+  });
   // save Cart Items into the Cookie
   const { cart: {cartItems} } = getState();
   Cookie.set("cartItems", JSON.stringify(cartItems));
 }
 
 const saveShipping = (data) => (dispatch) => {
-  dispatch({ type: CART_SAVE_SHIPPING, payload: data });
+  dispatch({ 
+    type: CART_SAVE_SHIPPING, 
+    payload: data 
+  });
 }
 
 const savePayment = (data) => (dispatch) => {
-  dispatch({ type: CART_SAVE_PAYMENT, payload: data });
+  dispatch({ 
+    type: CART_SAVE_PAYMENT, 
+    payload: data 
+  });
 }
+
 export { addToCart, removeFromCart, saveShipping, savePayment }
