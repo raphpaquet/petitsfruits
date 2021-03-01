@@ -20,6 +20,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { listProductCategories } from './actions/productActions';
 import AdminRoute from './components/AdminRoute';
+import Illustrations from './components/Illustrations';
+import StripeContainer from "./Stripe/StripeContainer";
 
 
 
@@ -59,8 +61,9 @@ function App() {
           <Route path="/cart/:id?" component={Cart} />
           <Route path="/search/category/:category" component={Store} />
           <Route path='/signin' component={Signin} />
-          <Route path='/portfolioacademique' component={Portfolio} />
-          <Route path='/tattoo' component={Tattoo} />
+          <Route path='/portfolioacademique' component={Illustrations} />
+          <Route path='/tattoo' component={Illustrations} />
+          <Route path='/illustrations' component={Illustrations} />
           <AdminRoute path="/products" component={Products} />
           <Route path='/' exact={true} component={HomePage} />
         <Footer />

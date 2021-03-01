@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { savePaymentMethod } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 import StoreNav from '../components/StoreNav';
+import StripeContainer from '../Stripe/StripeContainer'
 
 export default function Payment(props) {
 
@@ -41,7 +42,7 @@ export default function Payment(props) {
                   value="Stripe"
                   onChange={(e) => setPaymentMethod(e.target.value)}
                 ></input>
-                <label for="paymentMethod">Stripe</label>
+                <label htmlFor="paymentMethod">Stripe</label>
               </div>
             </li>
 
@@ -52,6 +53,7 @@ export default function Payment(props) {
             </li>
           </ul>
         </form>
+          <StripeContainer />
       </div>
     </div>
   );

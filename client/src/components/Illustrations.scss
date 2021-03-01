@@ -7,15 +7,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  .logo {
-    height: 2rem;
-    margin: 0.5em;
-    display: flex;
-    position: fixed;
-    visibility: hidden;
-  }
-  
-  ul {
+  .illustrations-ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -23,7 +15,7 @@
     margin: 1em 0.5em;
   }
   
-  li {
+  .illustrations-li {
     list-style-type: none;
     padding: 0;
     flex: 0 1 34rem;
