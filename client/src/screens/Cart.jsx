@@ -42,7 +42,10 @@ export default function Cart(props) {
             </li>
             {
               cartItems.length === 0 ?
-                <div className="text-simple">Le panier est vide</div>
+                <div className="text-simple">
+                  <p>Le panier est vide</p>
+                <Link to="/store">Retour à la boutique </Link>
+                </div>
                 :
                 cartItems.map(item =>
                   <li>

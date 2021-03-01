@@ -1,12 +1,15 @@
 import './Navigation.scss';
 import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom'
-
+import { useState } from 'react';
 
 export default function Navigation() {
 
+  const [shadow, setShadow] = useState(false);
+
+
      // sidebar open/close
-     const openMenu = () => {
+    const openMenu = () => {
       document.querySelector('.sidebar').classList.add('open');
     };
     const closeMenu = () => {

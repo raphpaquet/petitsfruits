@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { saveShipping } from '../actions/cartActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveShippingAddress } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 import './Shipping.scss';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
@@ -9,23 +9,27 @@ import StoreNav from '../components/StoreNav';
 
 
 export default function Shipping(props) {
+  
+  const cart = useSelector(state => state.cart);
+  const { shippingAddress } = cart;
 
-  const [contact, setContact] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [address, setAddress] = useState('');
-  const [appartment, setAppartment] = useState('');
-  const [city, setCity] = useState('');
-  const [province, setProvince] = useState('');
-  const [postalCode, setPostalCode] = useState('');
-  const [country, setCountry] = useState('');
+  const [contact, setContact] = useState(shippingAddress.contact);
+  const [firstName, setFirstName] = useState(shippingAddress.firstName);
+  const [lastName, setLastName] = useState(shippingAddress.lastName);
+  const [address, setAddress] = useState(shippingAddress.address);
+  const [appartment, setAppartment] = useState(shippingAddress.appartment);
+  const [city, setCity] = useState(shippingAddress.city);
+  const [province, setProvince] = useState(shippingAddress.province);
+  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
+  const [country, setCountry] = useState(shippingAddress.country);
+
 
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(saveShipping({ contact, firstName, lastName, appartment, province, address, city, postalCode, country }));
-    props.history.push('payment');
+    dispatch(saveShippingAddress({ contact, firstName, lastName, appartment, province, address, city, postalCode, country }));
+    props.history.push('/payment');
   }
 
 
@@ -41,10 +45,10 @@ export default function Shipping(props) {
               <input 
                 type="text" 
                 autoCapitalize="off" 
-                name="email-phone" 
-                id="email-phone" 
+                name="contact" 
+                id="contact" 
                 placeholder="Courriel ou Numéro De Téléphone" 
-                required="true"
+                required
                 onChange={(e) => setContact(e.target.value)}>
               </input>
             </li>
@@ -54,8 +58,8 @@ export default function Shipping(props) {
               <li>
                 <input 
                   type="text" 
-                  name="first-name" 
-                  id="first-name" 
+                  name="firsName" 
+                  id="firstName" 
                   placeholder="Prénom" 
                   onChange={(e) => setFirstName(e.target.value)}>
                 </input>
@@ -63,10 +67,10 @@ export default function Shipping(props) {
               <li>
                 <input 
                   type="text" 
-                  name="last-name" 
-                  id="last-name" 
+                  name="lastName" 
+                  id="lastName" 
                   placeholder="Nom De Famille" 
-                  required="true"
+                  required
                   onChange={(e) => setLastName(e.target.value)}>
                 </input>
               </li>
@@ -77,7 +81,7 @@ export default function Shipping(props) {
                 name="address" 
                 id="address" 
                 placeholder="Adresse" 
-                required="true"
+                required
                 onChange={(e) => setAddress(e.target.value)}>
               </input>
             </li>
@@ -87,7 +91,6 @@ export default function Shipping(props) {
                 name="appartment" 
                 id="appartment" 
                 placeholder="Appartement" 
-                required="true"
                 onChange={(e) => setAppartment(e.target.value)}>
               </input>
             </li>
@@ -97,7 +100,7 @@ export default function Shipping(props) {
                 name="city" 
                 id="city" 
                 placeholder="Ville" 
-                required="true"
+                required
                 onChange={(e) => setCity(e.target.value)}>
               </input>
             </li>
@@ -105,7 +108,7 @@ export default function Shipping(props) {
               <li>
                 <select id="country" 
                   placeholder="Pays"
-                  required="true"
+                  required
                   onChange={(e) => setCountry(e.target.value)}>
                     <option value="" disabled selected>pays</option>
                     <option>Canada</option>
@@ -114,7 +117,7 @@ export default function Shipping(props) {
               <li>
                 <select id="province" 
                   placeholder="Province"
-                  required="true"
+                  required
                   onChange={(e) => setProvince(e.target.value)}>
                     <option value="" disabled selected>province</option>
                     <option>AB</option>
@@ -138,7 +141,7 @@ export default function Shipping(props) {
                   type="text" 
                   name="postalCode" 
                   id="postalCode" 
-                  required="true"
+                  required
                   onChange={(e) => setPostalCode(e.target.value)}>
                 </input>
               </li>

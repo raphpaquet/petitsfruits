@@ -6,40 +6,37 @@ import { createOrder } from '../actions/orderActions';
 import './PlaceOrder.scss';
 import './Cart.scss';
 import StoreNav from '../components/StoreNav';
+import { ORDER_CREATE_RESET } from '../constants/orderConstants';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 
 export default function PlaceOrder(props) {
 
-  const cart = useSelector(state => state.cart);
-  // const orderCreate = useSelector(state => state.orderCreate);
-  // const { loading, success, error, order } = orderCreate;
-
-  const { cartItems, shipping, payment } = cart;
-  // if (!shipping.address) {
-  //   props.history.push("/shipping");
-  // } else if (!payment.paymentMethod) {
-  //   props.history.push("/payment");
-  // }
-  const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const shippingPrice = itemsPrice > 100 ? 0 : 10;
-  // const taxPrice = 0.15 * itemsPrice;
-  const totalPrice = itemsPrice + shippingPrice;
-
+  const cart = useSelector((state) => state.cart);
+  if (!cart.paymentMethod) {
+    props.history.push('/payment');
+  }
+  const orderCreate = useSelector((state) => state.orderCreate);
+  const { loading, success, error, order } = orderCreate;
+  const toPrice = (num) => Number(num.toFixed(2)); 
+  cart.itemsPrice = toPrice(
+    cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
+  );
+  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
   const dispatch = useDispatch();
 
-  // const placeOrderHandler = () => {
-  //   // create an order
-  //   dispatch(createOrder({
-  //     orderItems: cartItems, shipping, payment, itemsPrice, shippingPrice,
-  //     taxPrice, totalPrice
-  //   }));
-  // }
-  // useEffect(() => {
-  //   if (success) {
-  //     props.history.push("/order/" + order._id);
-  //   }
-
-  // }, [success]);
+  const placeOrderHandler = () => {
+    // create an order
+    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
+  };
+  useEffect(() => {
+    if (success) {
+      props.history.push(`/order/${order._id}`);
+      dispatch({ type: ORDER_CREATE_RESET });
+    }
+  }, [dispatch, order, props.history, success]);
 
   return (
   <div>
@@ -50,15 +47,18 @@ export default function PlaceOrder(props) {
         <div>
           <h3 className="title">Livraison</h3>
           <div>
-            {cart.shipping.address}, {cart.shipping.appartment}, {cart.shipping.city},
-          {cart.shipping.postalCode}, {cart.shipping.province},
-          {cart.shipping.country}
+          <p>
+            <strong>Name:</strong> {cart.firstName ? cart.shippingAddress.firstName + cart.shippingAddress.lastName : cart.shippingAddress.lastName} <br />
+            <strong>Address: </strong> {cart.shippingAddress.address}, {cart.shippingAddress.appartment}
+            {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}, {cart.shippingAddress.province}
+            ,{cart.shippingAddress.country}
+          </p>
           </div>
         </div>
         <div>
           <h3 className="title">Paiement</h3>
           <div>
-            Méthode de paiement: {cart.payment.paymentMethod}
+            Méthode de paiement: {cart.paymentMethod}
           </div>
         </div>
         <div>
@@ -67,10 +67,10 @@ export default function PlaceOrder(props) {
               <h3 className="title">Aperçu de la commande</h3>
             </li>
             {
-              cartItems.length === 0 ?
+              cart.cartItems.length === 0 ?
                 <div className="simple-text">Le panier est vide</div>
                 :
-                cartItems.map(item =>
+                cart.cartItems.map(item =>
                   <li>
                     <div className="cart-image">
                       <img src={item.image} alt="product" />
@@ -98,23 +98,28 @@ export default function PlaceOrder(props) {
       <div className="placeorder-action">
         <ul>
           <li>
-            <button className="button primary full-width"  >Placer la commande</button>
-          </li>
-          <li>
             <h3>Résumé de la commande</h3>
           </li>
           <li>
             <div>Items</div>
-            <div>{(itemsPrice).toFixed(2)}$</div>
+            <div>{(cart.itemsPrice).toFixed(2)}$</div>
           </li>
           <li>
             <div>Livraison</div>
-            <div>{(shippingPrice).toFixed(2)}$</div>
+            <div>{(cart.shippingPrice).toFixed(2)}$</div>
           </li>
           <li>
             <div>Total de la commande</div>
-            <div>{(totalPrice).toFixed(2)}$</div>
+            <div>{(cart.totalPrice).toFixed(2)}$</div>
           </li>
+          <li>
+            <button 
+              className="button primary full-width" 
+              onClick={placeOrderHandler} 
+              disabled={cart.cartItems.length === 0}>Placer la commande</button>
+          </li>
+          {loading && <LoadingBox></LoadingBox>}
+          {error && <MessageBox variant="danger">{error}</MessageBox>}
         </ul>
       </div>
     </div>
