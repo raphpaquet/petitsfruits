@@ -1,16 +1,17 @@
 import express from 'express';
 import dotenv from'dotenv';
-import data from './data';
+import path from 'path'
 import config from './config';
 import mongoose from 'mongoose';
-import userRoute from './routes/userRoute';
-import productRoute from './routes/productRoute';
+import userRouter from './routes/userRouter';
+import productRouter from './routes/productRouter';
+import orderRouter from './routes/orderRouter';
 import bodyParser from 'body-parser';
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const port = process.env.PORT || 4002;
-const path = require('path');
-const productsRouter = require('./routes/productRoute');
+
+
 
 dotenv.config();
 
@@ -24,8 +25,9 @@ mongoose.connect(mongodbUrl, {
 const app = express();
 app.use(bodyParser.json());
 
-app.use("/api/users", userRoute);
-app.use("/api/products", productRoute)
+app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
+app.use("/api/orders", orderRouter);
 
 
 
@@ -45,23 +47,8 @@ app.get('/express_backend', (req, res) => {
 app.use('/sendtome', require('./routes/sendToMe'))
 
 
-//db routes
 
-// // Product details route
-// app.get("/api/products/:id", (req, res) => {
-//   const productId = req.params.id;
-//   const product = data.products.find(x => x._id === productId);
-//   if(product) {
-//     res.send(product);
-//   }else {
-//     res.status(404).send({ msg: "Product Not Found. " })
-//   }
-// });
 
-// app.use('/api/products', productsRouter(dbHelpers));
-// app.get("/api/products", (req, res) => {
-//   res.send(data.products)
-// })
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
