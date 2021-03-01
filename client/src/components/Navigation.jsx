@@ -3,10 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 
-export default function Navigation() {
-
-  const [shadow, setShadow] = useState(false);
-
+export default function Navigation(props) {
 
      // sidebar open/close
     const openMenu = () => {
@@ -40,7 +37,7 @@ export default function Navigation() {
               <Link to="/store" className="category-btn" onClick={closeMenu}>Boutique</Link>
             </li>
             <li>
-              <Link to="#illustrations" className="category-btn" onClick={closeMenu}>Illustrations</Link>
+              <Link to="/illustrations" className="category-btn" onClick={closeMenu}>Illustrations</Link>
             </li>
             <li>
               <Link to="/portfolioacademique" className="category-btn" onClick={closeMenu}>Portfolio Académique</Link>

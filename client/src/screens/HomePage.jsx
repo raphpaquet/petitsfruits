@@ -14,7 +14,7 @@ export default function HomePage() {
       <div >
         <img className="homepage-img" src="./images/skate.png" />
       </div>
-        <Newsletter />
+        {/* <Newsletter /> */}
       <div>
         <Contact />
       </div>
